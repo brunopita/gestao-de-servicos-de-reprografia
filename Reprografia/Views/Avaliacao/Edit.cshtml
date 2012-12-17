@@ -1,0 +1,28 @@
+﻿@model Reprografia.Models.Avaliacao
+@{
+    ViewBag.Title = string.Format("Avaliando Solicitação {0}/{1:000}",
+        Model.Solicitacao.Ano, Model.Solicitacao.Seq);
+}
+<h2>
+    @ViewBag.Title</h2>
+<link href="@Url.Content("~/Content/ItemEditor.css")" type="text/css" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+@*Lista de Items*@
+    <div id="itemContainer">
+        @foreach (var item in Model.ItemsAvaliacao)
+        {
+            Html.RenderPartial("ItemAvaliacaoEditorLine", item);
+        }
+    </div>
+    <p>
+        <input type="submit" value="Salvar" />
+    </p>
+}
+<div>
+    @Html.ActionLink("Voltar", "Index", "Solicitacao")
+</div>

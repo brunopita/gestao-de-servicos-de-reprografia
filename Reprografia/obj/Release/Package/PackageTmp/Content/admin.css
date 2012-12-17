@@ -1,0 +1,22 @@
+﻿input#search
+{
+    background-image: url("img/lupa.png");
+    background-position: 3px;
+    background-repeat: no-repeat;
+    padding: 0;
+    padding-left: 21px;
+    height: 26px;
+    margin: 16px 0;
+    margin-left: auto;
+    display: inline;
+	float:right;
+border:1px solid #F3A381;
+}
+h2
+{
+    width: 200px;
+    float: left;
+    height: 26px;
+    display: inline;
+    padding: 0;
+}

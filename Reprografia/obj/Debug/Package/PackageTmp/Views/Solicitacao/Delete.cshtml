@@ -1,0 +1,45 @@
+﻿@model Reprografia.Models.Solicitacao
+@{
+    ViewBag.Title = "Eliminar";
+}
+<h2>
+    Deletar</h2>
+<p>
+    Confirma eliminar a seguinte Solicitação?</p>
+@using (Html.BeginForm("Delete", "Solicitacao", FormMethod.Post))
+{
+    <input type="hidden" value="@Model.Id" name="Id"/>
+    <input type="submit" name="submit" value="Sim" />
+    <input type="submit" name="submit" value="Não" />
+}
+<div class="display-label">
+    Identificação</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Ano)/@Html.DisplayFor(model => model.Seq)
+</div>
+<div class="display-label">
+    Formato</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Formato)
+</div>
+<div class="display-label">
+    Data de Solicitação</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.DataSolicitacao)
+</div>
+<div class="display-label">
+    Data de Entrega</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.DataEntrega)
+</div>
+<div class="display-label">
+    Suporte</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Suporte)
+</div>
+<div class="display-label">
+    Usuário</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.UserName)
+</div>
+@Html.ActionLink("Voltar", "Admin")

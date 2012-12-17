@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Sistema de Solicitação de Serviços Reprográficos";
+}
+<h2>@ViewBag.Message</h2>
+@if (true)
+{
+    <p>
+        Faça o @Html.ActionLink("Login", "LogOn", "Account") para acessar suas solicitações.
+    </p>
+}else{
+    <p>
+        Redirecionando para listagem de Solicitações, clique @Html.ActionLink("Aqui", "Index", "Solicitacao") para prosseguir imediatamente.
+    </p>
+}

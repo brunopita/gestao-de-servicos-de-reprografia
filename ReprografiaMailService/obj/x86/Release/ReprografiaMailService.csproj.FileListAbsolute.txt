@@ -1,0 +1,32 @@
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\ReprografiaMailService.exe.config
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\ReprografiaMailService.exe
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\ReprografiaMailService.pdb
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\EntityFramework.dll
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\Omu.ValueInjecter.dll
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\RazorEngine.dll
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\Reprografia.dll
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\System.Web.Razor.dll
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\Reprografia.pdb
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\EntityFramework.xml
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\bin\Release\Omu.ValueInjecter.xml
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.csprojResolveAssemblyReference.cache
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.Properties.Resources.resources
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.csproj.GenerateResource.Cache
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.exe
+C:\Users\Paolo\documents\visual studio 2010\Projects\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.pdb
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\ReprografiaMailService.exe.config
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\ReprografiaMailService.exe
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\ReprografiaMailService.pdb
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\EntityFramework.dll
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\Omu.ValueInjecter.dll
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\RazorEngine.dll
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\Reprografia.dll
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\System.Web.Razor.dll
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\Reprografia.pdb
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\EntityFramework.xml
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\bin\Release\Omu.ValueInjecter.xml
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.csprojResolveAssemblyReference.cache
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.Properties.Resources.resources
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.csproj.GenerateResource.Cache
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.exe
+C:\projects\Reprografia\trunk\Reprografia\ReprografiaMailService\obj\x86\Release\ReprografiaMailService.pdb

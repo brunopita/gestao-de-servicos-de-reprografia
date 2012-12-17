@@ -1,0 +1,23 @@
+﻿@model ReprografiaMailService.Models.MailViewModel
+<html>
+<head>
+    <title>Lembrete para avaliação da Solicitação Reprográfica @Model.AvaliacaoSolicitacaoAno/@Model.AvaliacaoSolicitacaoSeq
+    </title>
+</head>
+<body>
+    <p>
+        Ol&aacute;, @Model.AvaliacaoSolicitacaoUserFullName!</p>
+    <p>
+        De acordo com regras da Comiss&atilde;o de Qualidade, sua solicita&ccedil;&atilde;o
+        reprogr&aacute;fica <a
+href="http://reprografia.suicobrasileira.com.br/Solicitacao/Details/@Model.AvaliacaoSolicitacaoId">@Model.AvaliacaoSolicitacaoAno/@Model.AvaliacaoSolicitacaoSeq</a>,
+        deve ser avaliada at&eacute; dia @String.Format("{0:dd/MM/yyyy}", Model.AvaliacaoDataLimite),
+        caso contr&aacute;rio, voc&ecirc; n&atilde;o poder&aacute; efetuar novas solicita&ccedil;&otilde;es
+        at&eacute; que a avalia&ccedil;&atilde;o seja realizada.</p>
+    <p>
+        <a href="http://reprografia.suicobrasileira.com.br/Avaliacao/Edit/@Model.AvaliacaoId">
+            Siga este link</a> para realizar a avalia&ccedil;&atilde;o.</p>
+    <p>
+        Obrigado.</p>
+</body>
+</html>

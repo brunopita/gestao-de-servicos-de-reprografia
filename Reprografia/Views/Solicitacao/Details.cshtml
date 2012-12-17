@@ -1,0 +1,59 @@
+﻿@model Reprografia.Models.Solicitacao
+@{
+    ViewBag.Title = "Sistema de Serviços Reprográficos | Detalhes";
+}
+<h2>
+    Detalhes do Item</h2>
+<fieldset class="details">
+    <legend>Solicitacao @Html.DisplayFor(model => model.Ano)/@Html.DisplayFor(model => model.Seq)</legend>
+    <div class="display-label">
+        Identificação</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ano)/@Html.DisplayFor(model => model.Seq)
+    </div>
+    <div class="display-label">
+        Usuário</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName) - @Html.DisplayFor(model => model.User.FullName)
+    </div>
+    <div class="display-label">
+        Formato</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Formato)
+    </div>
+    <div class="display-label">
+        Área</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Area.Nome)
+    </div>
+    <div class="display-label">
+        Data de Solicitação</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataSolicitacao)
+    </div>
+    <div class="display-label">
+        Data Esperada para Entrega</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataEntrega)
+    </div>
+    <div class="display-label">
+        Suporte</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Suporte)
+    </div>
+    <div class="display-label">
+        Fornecedor</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fornecedor.Nome)
+    </div>
+    <fieldset>
+        <legend>CC - CM</legend>
+        @Html.DisplayFor(model => model.Codificacao)
+    </fieldset>
+    <h2>
+        Itens</h2>
+    @{Html.RenderPartial("ItemList", Model.Itens);}
+</fieldset>
+<p>
+    @Html.ActionLink("Voltar à Listagem", "Index")
+</p>

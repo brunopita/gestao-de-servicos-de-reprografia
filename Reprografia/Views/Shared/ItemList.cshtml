@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Reprografia.Models.Item>
+<table>
+    <tr>
+        <th>
+            Descrição
+        </th>
+        <th>
+            Páginas
+        </th>
+        <th>
+            Cópias
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paginas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Copias)
+        </td>
+    </tr>
+}
+
+</table>

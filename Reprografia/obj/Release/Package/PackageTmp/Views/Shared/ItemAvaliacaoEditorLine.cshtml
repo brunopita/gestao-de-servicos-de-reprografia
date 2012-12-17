@@ -1,0 +1,41 @@
+﻿@model Reprografia.Models.ItemAvaliacao
+@using Reprografia.lib
+@using (Html.BeginCollectionItem("ItensAvaliacao"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="item-avaliacao-line">
+        <legend>@Html.DisplayFor(model => model.Item.Descricao)</legend>
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ItemId)
+        <div class="item-field">
+            @Html.LabelFor(model => model.Prazo)
+            @Html.EnumDropDownListFor(model => model.Prazo)
+            @Html.ValidationMessageFor(model => model.Prazo)
+        </div>
+        <div class="item-field">
+            @Html.LabelFor(model => model.Nitidez)
+            @Html.EnumDropDownListFor(model => model.Nitidez)
+            @Html.ValidationMessageFor(model => model.Nitidez)
+        </div>
+        <div class="item-field">
+            @Html.LabelFor(model => model.Paginacao)
+            @Html.EnumDropDownListFor(model => model.Paginacao)
+            @Html.ValidationMessageFor(model => model.Paginacao)
+        </div>
+        <div class="item-field">
+            @Html.LabelFor(model => model.Quantidade)
+            @Html.EnumDropDownListFor(model => model.Quantidade)
+            @Html.ValidationMessageFor(model => model.Quantidade)
+        </div>
+        <div class="item-field">
+            @Html.LabelFor(model => model.Matriz)
+            @Html.EnumDropDownListFor(model => model.Matriz)
+            @Html.ValidationMessageFor(model => model.Matriz)
+        </div>
+        <div class="item-field">
+            @Html.LabelFor(model => model.Acabamento)
+            @Html.EnumDropDownListFor(model => model.Acabamento)
+            @Html.ValidationMessageFor(model => model.Acabamento)
+        </div>
+    </fieldset>
+}

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Reprografia.Models.ViewModels.SolicitacaoIndexModel>
+@using Reprografia.BusinessLogic;
+@{
+    ViewBag.Title = "Início";
+}
+<h2>
+    Suas Solicitações</h2>
+@if (TempData["ErrorMessage"] != null)
+{
+    <p class="error">
+        @TempData["ErrorMessage"]
+    </p>
+}
+<table>
+    <tr>
+        @{Html.RenderPartial("RowHeaderPartial");}
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @{Html.RenderPartial("RowDisplayPartial", item);}
+            <td>
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                @if (!item.Avaliado)
+                {
+                    <span class="divider">| </span>
+                    @Html.ActionLink("Avaliar", "Edit", "Avaliacao", new { id = item.Id }, null)
+                }
+                <span class="divider">| </span>
+                @Html.ActionLink("Planilha", "Xl", new { id = string.Format("{0}-{1}", item.Ano, item.Seq) })
+            </td>
+        </tr>
+    }
+</table>
