@@ -14,20 +14,6 @@ namespace Reprografia.BusinessLogic
     {
         private static Data.ReprografiaContext db = new Data.ReprografiaContext();
         public const double DIAS_CORRIDOS_PARA_AVALIAR = 10.0;
-        /// <summary>
-        /// Determina se <paramref name="solicitacao"/> possui avaliação pendente
-        /// </summary>
-        /// <param name="solicitacao">Solicitação a ser analisada, deve estar vinculada ao banco</param>
-        /// <returns>true se possuir avaliação pendente</returns>
-        public static bool PossuiAvaliacaoPendente(Models.Solicitacao solicitacao)
-        {
-            if (solicitacao == null)
-                throw new ArgumentNullException("solicitacao", "solicitacao is null.");
-
-            solicitacao = db.Solicitacoes.Find(solicitacao.Id);
-            return !solicitacao.Avaliacao.Avaliado;
-        }
-
 
         /// <summary>
         /// Determina se <paramref name="user"/> possui alguma avaliação pendente
@@ -39,15 +25,11 @@ namespace Reprografia.BusinessLogic
             if (user == null)
                 throw new ArgumentNullException("user", "user is null.");
             var solicitacoes = from s in db.Solicitacoes
-                                   .Include("Avaliacao")
-                                   .Include("User")
                                where s.User.UserName == user.UserName
                                select s;
-            foreach (var s in solicitacoes)
-                if (PossuiAvaliacaoPendente(s))
-                    return true;
 
-            return false;
+            //Verificar se avaliações estão pendentes
+            return solicitacoes.Any(s => !s.Avaliacao.Avaliado);
         }
 
         public static Models.Avaliacao CriarAvaliacao()

@@ -42,16 +42,24 @@ namespace Reprografia.Controllers
 
         public ActionResult Details(int id)
         {
-            var model = db.Solicitacoes
-                .Include("Fornecedor")
-                .Include("Area")
-                .Include("Codificacao")
-                .FirstOrDefault(s => s.User.UserName == User.Identity.Name && s.Id == id);
+            try
+            {
+                var model = db.Solicitacoes
+                    .Include("Fornecedor")
+                    .Include("Area")
+                    .Include("Codificacao")
+                    .First(s => s.Id == id);
 
-            if (model == default(Solicitacao))
+                if (User.IsInRole("Administrator") || model.UserName == User.Identity.Name)
+                    return View(model);
+                else
+                    return RedirectToAction("Index");
+
+            }
+            catch (InvalidOperationException)
+            {
                 return RedirectToAction("Index");
-
-            return View(model);
+            }
         }
 
         [HttpGet]
@@ -119,7 +127,7 @@ namespace Reprografia.Controllers
                 //        })
                 //        , "Id", "Nome", 1);
                 //data.Fornecedores = new SelectList(db.Fornecedores, "Id", "Nome", 1);
-                
+
                 return Create();
             }
 
