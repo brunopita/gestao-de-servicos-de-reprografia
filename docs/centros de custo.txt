@@ -1,0 +1,34 @@
+11521 - 170300 : Suporte Administrativo/Financeiro - Administracao das Unidades Operacionais - SENAI
+11541 - 171103 : Educacao e Tecnologia - Suporte Tecnico/Operacional - Curso Tecnico
+11541 - 400101 : Educacao e Tecnologia - Iniciacao Profissional
+11541 - 400102 : Educacao e Tecnologia - Iniciacao Profissional - PCFP
+11541 - 400105 : Educacao e Tecnologia - Iniciacao Prof. - CIPA - Fomento SESI/DN
+11541 - 401501 : Educacao e Tecnologia - Qualificacao Prof. Nivel Basico - Escola
+11541 - 401502 : Educacao e Tecnologia - Qualificacao Prof. Nivel Basico - Empresa
+11541 - 401503 : Educacao e Tecnologia - Qualificacao Prof. Nivel Basico - Entidade
+11541 - 401504 : Educacao e Tecnologia - Qualificacao Prof. Nivel Basico - PCFP
+11541 - 401505 : Educacao e Tecnologia - Qualificacao Prof. - Contrato SENAI/SERT
+11541 - 401506 : Educacao e Tecnologia - Qualificacao Prof. - Contrato SENAI/SDECT
+11541 - 403001 : Educacao e Tecnologia - Aperfeicoamento Prof. Nivel Basico - Escola
+11541 - 403002 : Educacao e Tecnologia - Aperfeicoamento Prof. Nivel Basico - Empresa
+11541 - 403003 : Educacao e Tecnologia - Aperfeicoamento Prof. Nivel Basico - Entidade
+11541 - 403004 : Educacao e Tecnologia - Aperfeicoamento Prof. Nivel Basico - PCFP
+11541 - 404501 : Educacao e Tecnologia - Especializacao Prof. Nivel Basico - Escola
+11541 - 404502 : Educacao e Tecnologia - Especializacao Prof. Nivel Basico - Empresa
+11541 - 404503 : Educacao e Tecnologia - Especializacao Prof. Nivel Basico - Entidade
+11541 - 404504 : Educacao e Tecnologia - Especializacao Prof. Nivel Basico - PCFP
+**** 11541 - 500101 : Educacao e Tecnologia - Tecnico de Nivel Medio - Escola
+11541 - 500102 : Educacao e Tecnologia - Tecnico de Nivel Medio - Empresa
+11541 - 500103 : Educacao e Tecnologia - Tecnico de Nivel Medio - Entidade
+11541 - 500104 : Educacao e Tecnologia - Tecnico de Nivel Medio - Projeto Especial
+11541 - 600100 : Educacao e Tecnologia - Formacao de Tecnologo
+11541 - 682000 : Educacao e Tecnologia - Telecurso 2000 - Prestacao Servicos Educacionais
+11541 - 700101 : Educacao e Tecnologia - Acao Global Regional
+11541 - 710000 : Educacao e Tecnologia - Asses Tec/Tecnol - Gestao Empresarial
+11541 - 735000 : Educacao e Tecnologia - Elaboracao/Disseminacao Informacoes (Serv. Docum.)
+11541 - 755003 : Educacao e Tecnologia - Gestao Estrategica do Design
+11541 - 760000 : Educacao e Tecnologia - Serv. Tec. Labor. - Calibracao Dimensional
+11541 - 772100 : Educacao e Tecnologia - Assessoria e Consultoria em Educacao
+11541 - 773000 : Educacao e Tecnologia - Desenvolv. Tecnologico - Pesquisa Aplicada
+11541 - 774000 : Educacao e Tecnologia - Desenvolv. Tecnologico - Desenvolv. Experimental
+11541 - 775000 : Educacao e Tecnologia - Desenvolv. Tecnologico - Design
