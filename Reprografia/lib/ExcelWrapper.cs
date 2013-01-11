@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.Office.Interop.Excel;
+using NPOI.HSSF.UserModel;
+using NPOI.POIFS;
+using NPOI.POIFS.FileSystem;
+using System.IO;
 
 namespace Reprografia.lib
 {
     public class ExcelWrapper : IDisposable
     {
+        private HSSFWorkbook wkb;
         private Application _App;
         public Application App
         {
@@ -29,8 +34,7 @@ namespace Reprografia.lib
             }
             return false;
         }
-
-
+        
         private static void WritePropertyToSheet(Worksheet sheet, object source, System.Reflection.PropertyInfo prop, params string[] exclude)
         {
             Type propType = prop.PropertyType;
