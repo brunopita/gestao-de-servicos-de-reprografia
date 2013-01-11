@@ -74,8 +74,6 @@ namespace Reprografia.Data
 
             #region Codificacoes
             var codificacoes = new[]{
-                new Codificacao(){CentroDeCusto=11511, DescricaoCentroDeCusto = "Gestao da Qualidade", ContaMemo = 170000, DescricaoContaMemo = "Administracao Geral Unidades Operacionais - SENAI"},
-                new Codificacao(){CentroDeCusto=11511, DescricaoCentroDeCusto = "Marketing Promocional", ContaMemo = 170000, DescricaoContaMemo = "Administracao Geral Unidades Operacionais - SENAI"},
                 new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Marketing Promocional", ContaMemo = 170201, DescricaoContaMemo = "Programa SENAI Casa Aberta"},
                 new Codificacao(){CentroDeCusto=11521, DescricaoCentroDeCusto = "Suporte Administrativo/Financeiro", ContaMemo = 170300, DescricaoContaMemo = "Administracao das Unidades Operacionais - SENAI"},
                 new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 600100, DescricaoContaMemo = "Formacao de Tecnologo"},
@@ -111,12 +109,6 @@ namespace Reprografia.Data
                 new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 774000, DescricaoContaMemo = "Desenvolv. Tecnologico - Desenvolv. Experimental"},
                 new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 775000, DescricaoContaMemo = "Desenvolv. Tecnologico - Design"},
                 new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 755003, DescricaoContaMemo = "Gestao Estrategica do Design"},
-                new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 900022, DescricaoContaMemo = "Adequacao de Prensas e Similares - NR12"},
-                new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 900031, DescricaoContaMemo = "Predios de Terceiros - Servicos de Manutencao"},
-                new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 900054, DescricaoContaMemo = "Investimentos Estrategicos - Aprendizagem"},
-                new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 900064, DescricaoContaMemo = "Investimentos Estrategicos - Curso Tecnico"},
-                new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 900074, DescricaoContaMemo = "Investimentos Estrategicos - Laborat. de Ensaios"},
-                new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 900075, DescricaoContaMemo = "Investimentos Estrategicos - Laborat. Calibracao"},
                 new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 163901, DescricaoContaMemo = "Supervisao de Projetos e de Infraestrutura"},
                 new Codificacao(){CentroDeCusto=11541, DescricaoCentroDeCusto = "Educacao e Tecnologia", ContaMemo = 700101, DescricaoContaMemo = "Acao Global Regional"}
             };

@@ -82,7 +82,7 @@ namespace Reprografia.Controllers
                     Id = c.Id
                 });
             model.Codificacoes = new SelectList(itemsCodificacoes,
-                "Id", "Nome", 1);
+                "Id", "Nome", SolicitacaoBL.CODIFICACAO_DEFAULT_ID);
 
             model.Fornecedores = new SelectList(db.Fornecedores, "Id", "Nome", 1);
             model.Solicitacao = SolicitacaoBL.CriarSolicitacao();
