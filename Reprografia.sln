@@ -1,18 +1,18 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reprografia", "Reprografia\Reprografia.csproj", "{164EF192-D4B5-4338-9B1D-8A114715CBCB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReprografiaMailService", "ReprografiaMailService\ReprografiaMailService.csproj", "{A633D2B3-0D3B-46FE-A339-EFAE1A54FF91}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReprografiaMailServiceTest", "ReprografiaMailServiceTest\ReprografiaMailServiceTest.csproj", "{0BBD61A7-1461-4820-9AB0-A9E4B18E33C2}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4DCFFC76-FE2B-419C-AC2D-DF022C982795}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
 		Reprografia.vsmdi = Reprografia.vsmdi
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reprografia", "Reprografia\Reprografia.csproj", "{164EF192-D4B5-4338-9B1D-8A114715CBCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReprografiaMailService", "ReprografiaMailService\ReprografiaMailService.csproj", "{A633D2B3-0D3B-46FE-A339-EFAE1A54FF91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReprografiaMailServiceTest", "ReprografiaMailServiceTest\ReprografiaMailServiceTest.csproj", "{0BBD61A7-1461-4820-9AB0-A9E4B18E33C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReprografiaTest", "ReprografiaTest\ReprografiaTest.csproj", "{E777FB16-700A-4104-848B-CD9FF69E0144}"
 EndProject
