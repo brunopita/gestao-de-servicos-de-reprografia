@@ -31,8 +31,8 @@ namespace ReprografiaMailServiceTest
                         Ano = 2012,
                         User = new User() { Email = "paolohaji@gmail.com", FullName = "Paolo Haji de Carvalho Bueno" }
                     },
-                    DataLimite = DateTime.Now,
-                    SolicitacaoId = 1
+                    DataLimite = DateTime.Now
+                    //, SolicitacaoId = 1
                 },
             };
             return emailCompleto;

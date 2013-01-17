@@ -40,13 +40,15 @@ namespace Reprografia.Data
                 .WithRequired(i => i.Solicitacao)
                 .HasForeignKey(i => i.SolicitacaoId);
             modelBuilder.Entity<Avaliacao>()
-                .HasMany(a => a.ItemsAvaliacao)
+                .HasMany(a => a.ItensAvaliacao)
                 .WithRequired(i => i.Avaliacao)
                 .HasForeignKey(i => i.AvaliacaoId);
             modelBuilder.Entity<Item>()
                 .HasOptional(i => i.ItemAvaliacao)
-                .WithOptionalPrincipal(i => i.Item)
+                .WithRequired(i => i.Item)
                 .WillCascadeOnDelete(false);
+
+                
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);

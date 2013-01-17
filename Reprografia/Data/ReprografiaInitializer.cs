@@ -14,7 +14,7 @@ namespace Reprografia.Data
 {
     public class ReprografiaInitializer
         : DropCreateDatabaseIfModelChanges<ReprografiaContext>
-    //: DropCreateDatabaseAlways<ReprografiaContext>
+        //: DropCreateDatabaseAlways<ReprografiaContext>
     {
         protected override void Seed(ReprografiaContext context)
         {
@@ -160,7 +160,18 @@ namespace Reprografia.Data
 
             #region Avaliacoes
             var ava1 = AvaliacaoBL.CriarAvaliacao(sol1);
+            foreach (var item in ava1.ItensAvaliacao)
+            {
+                item.Acabamento = "N";
+                item.Matriz = "N";
+                item.Nitidez = "N";
+                item.Paginacao = "N";
+                item.Prazo = "N";
+                item.Quantidade = "N";
+            }
+
             var ava2 = AvaliacaoBL.CriarAvaliacao(sol2);
+
             context.Avaliacoes.Add(ava1);
             context.Avaliacoes.Add(ava2);
 

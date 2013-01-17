@@ -1,12 +1,13 @@
 ﻿@model Reprografia.Models.ItemAvaliacao
 @using Reprografia.lib
+@using Reprografia.Models
 @using (Html.BeginCollectionItem("ItensAvaliacao"))
 {
     @Html.ValidationSummary(true)
     <fieldset class="item-avaliacao-line">
         <legend>@Html.DisplayFor(model => model.Item.Descricao)</legend>
         @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model => model.ItemId)
+        @Html.HiddenFor(model => model.AvaliacaoId)
         <div class="item-field">
             @Html.LabelFor(model => model.Prazo)
             @Html.EnumDropDownListFor(model => model.Prazo)

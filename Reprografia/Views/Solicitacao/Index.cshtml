@@ -29,7 +29,7 @@
                     @Html.ActionLink("Avaliar", "Edit", "Avaliacao", new { id = item.Id }, null)
                 }
                 <span class="divider">| </span>
-                @Html.ActionLink("Planilha", "Xl", new { id = string.Format("{0}-{1}", item.Ano, item.Seq) })
+                @Html.ActionLink("Planilha", "Xl", new { id = item.Id })
             </td>
         </tr>
     }

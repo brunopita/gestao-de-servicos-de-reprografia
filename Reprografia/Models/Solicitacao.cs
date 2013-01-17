@@ -88,5 +88,13 @@ namespace Reprografia.Models
         public int CodificacaoId { get; set; }
         [Display(Name = "Centro de Custo + Conta Memo")]
         public virtual Codificacao Codificacao { get; set; }
+
+        public string AnoSeq
+        {
+            get
+            {
+                return String.Format("{0}-{1}", this.Ano.ToString(), this.Seq.ToString());
+            }
+        }
     }
 }

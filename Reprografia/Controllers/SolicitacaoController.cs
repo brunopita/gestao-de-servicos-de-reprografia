@@ -11,6 +11,7 @@ using Omu.ValueInjecter;
 using Reprografia.Data;
 using Reprografia.Models.Account;
 using Reprografia.BusinessLogic;
+using System.IO;
 
 namespace Reprografia.Controllers
 {
@@ -200,20 +201,21 @@ namespace Reprografia.Controllers
         }
 
 
-        public ActionResult Xl(string id)
+        public ActionResult Xl(int id)
         {
-            string[] anoSeq = id.Split('-');
-            int ano = int.Parse(anoSeq[0]);
-            int seq = int.Parse(anoSeq[1]);
             Solicitacao solicitacao = db.Solicitacoes
                 .Include("User")
                 .Include("Fornecedor")
                 .Include("Itens")
-                .First(s => s.Ano == ano && s.Seq == seq);
+                .First(s => s.Id == id);
 
-            string resultPath = SolicitacaoBL.EscreverXl(solicitacao, Server.MapPath("~"));
-
-            return new FilePathResult(resultPath, "application/vnd.ms-excel");
+            MemoryStream result = new MemoryStream();
+            SolicitacaoBL.EscreverXl(solicitacao, Server.MapPath("~"), result);
+            result.Position = 0;
+            return new FileStreamResult(result, "application/vnd.ms-excel")
+            {
+                FileDownloadName = "Solicitacao" + solicitacao.AnoSeq + ".xls"
+            };
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Reprografia.Models;
 using Reprografia.Data;
 using Reprografia.BusinessLogic;
+using System.IO;
 
 namespace Reprografia.Controllers
 {
@@ -30,7 +31,7 @@ namespace Reprografia.Controllers
         public ActionResult Edit(int id)
         {
             Avaliacao avaliacao = db.Avaliacoes
-                .Include("ItemsAvaliacao")
+                .Include("ItensAvaliacao")
                 .Include("Solicitacao")
                 .First(a => a.Id == id);
 
@@ -49,14 +50,18 @@ namespace Reprografia.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(avaliacao).State = EntityState.Modified;
-
+                db.Avaliacoes.Attach(avaliacao);
+                foreach (var item in avaliacao.ItensAvaliacao)
+                    db.Entry(item).State = EntityState.Modified;
+                
                 avaliacao.Avaliado = true;
                 avaliacao.DataAvaliado = DateTime.Now;
 
                 db.SaveChanges();
                 return RedirectToAction("Index", "Solicitacao");
             }
+
+            avaliacao = db.Avaliacoes.Find(avaliacao.Id);
             return View(avaliacao);
         }
 
@@ -81,17 +86,20 @@ namespace Reprografia.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult XL(string id)
+        public ActionResult XL(int id)
         {
-            string[] anoSeq = id.Split('-');
-            int ano = int.Parse(anoSeq[0]);
-            int seq = int.Parse(anoSeq[1]);
             Solicitacao solicitacao = db.Solicitacoes
                 .Include("Avaliacao")
-                .First(s => s.Ano == ano && s.Seq == seq);
-            string resultPath = AvaliacaoBL.EscreverXl(solicitacao.Avaliacao, Server.MapPath("~"));
+                .First(s => s.Id == id);
 
-            return new FilePathResult(resultPath, "application/vnd.ms-excel");
+            MemoryStream result = new MemoryStream();
+            AvaliacaoBL.EscreverXl(solicitacao.Avaliacao, Server.MapPath("~"), result);
+
+            result.Position = 0;
+            return new FileStreamResult(result, "application/vnd.ms-excel")
+            {
+                FileDownloadName = "Avaliacao" + solicitacao.AnoSeq + ".xls"
+            };
         }
 
         protected override void Dispose(bool disposing)

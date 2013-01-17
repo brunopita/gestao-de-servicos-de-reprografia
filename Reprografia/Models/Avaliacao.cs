@@ -11,14 +11,15 @@ namespace Reprografia.Models
 
         public Avaliacao()
         {
-            this.ItemsAvaliacao = new HashSet<ItemAvaliacao>();
+            this.ItensAvaliacao = new HashSet<ItemAvaliacao>();
             this.DataLimite = new DateTime(1900, 1, 1);
             this.DataAvaliado = new DateTime(1900, 1, 1);
         }
 
         public int Id { get; set; }
 
-        public int SolicitacaoId { get; set; }
+        //public int SolicitacaoId { get; set; }
+        [ForeignKey("Id")]
         public virtual Solicitacao Solicitacao { get; set; }
 
         public bool Avaliado { get; set; }
@@ -55,6 +56,6 @@ namespace Reprografia.Models
             }
         }
 
-        public virtual ICollection<ItemAvaliacao> ItemsAvaliacao { get; set; }
+        public virtual ICollection<ItemAvaliacao> ItensAvaliacao { get; set; }
     }
 }

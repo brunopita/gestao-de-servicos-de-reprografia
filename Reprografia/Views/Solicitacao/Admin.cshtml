@@ -5,8 +5,7 @@
 }
 <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/admin.css")" />
 <div id="header">
-    <h2>
-        Solicitações</h2>
+    <h2>Solicitações</h2>
     @if (ViewBag.PodeCriarSolicitacao == StatusCriacaoSolicitacao.Permitido)
     {
         <p>
@@ -26,8 +25,7 @@
     <thead>
         <tr>
             @{Html.RenderPartial("RowHeaderPartial");}
-            <th>
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -43,11 +41,11 @@
                         @Html.ActionLink("Indeferir", "Delete", new { id = item.Id })
                         <span class="divider">| </span>
                     }
-                    @Html.ActionLink("Solicitação", "Xl", new { id = string.Format("{0}-{1}", item.Ano, item.Seq) })
+                    @Html.ActionLink("Solicitação", "Xl", new { id = item.Id })
                     @if (item.Avaliado)
                     {
                         <span class="divider">| </span>
-                        @Html.ActionLink("Avaliação", "Xl", "Avaliacao", new { id = string.Format("{0}-{1}", item.Ano, item.Seq) }, null)
+                        @Html.ActionLink("Avaliação", "Xl", "Avaliacao", new { id = item.Id }, null)
                     }
                 </td>
             </tr>

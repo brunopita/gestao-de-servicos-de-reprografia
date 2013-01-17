@@ -6,6 +6,7 @@ using Reprografia.Models.Account;
 using Microsoft.Office.Interop.Excel;
 using Reprografia.lib;
 using System.IO;
+using Reprografia.Data.XL;
 
 namespace Reprografia.BusinessLogic
 {
@@ -79,69 +80,13 @@ namespace Reprografia.BusinessLogic
             return PodeCriarSolicitacao(user);
         }
 
-        public static string EscreverXl(Models.Solicitacao solicitacao, string siteRoot)
+        public static void EscreverXl(Models.Solicitacao solicitacao, string siteRoot, Stream destination)
         {
-            using (ExcelWrapper wrapper = new ExcelWrapper())
-            {
-                Application xl = wrapper.App;
-                Workbook wkb = xl.Workbooks.Add(Path.Combine(siteRoot, @"Excel\Planilhas\Solicitacao.xlt"));
-                xl.DisplayAlerts = false;
-                Worksheet sheet = wkb.ActiveSheet;
-                WriteToXl(sheet, solicitacao);
-
-                string destPath = Path.Combine(System.Environment.GetEnvironmentVariable("TEMP", EnvironmentVariableTarget.Process),
-                    string.Format(@"Solicitacao{0}-{1}.xls", solicitacao.Ano, solicitacao.Seq));
-                //string destPath = Path.Combine(siteRoot, string.Format(@"Excel\Solicitacoes\Solicitacao{0}-{1}.xls",
-                //    solicitacao.Ano, solicitacao.Seq));
-
-                if (File.Exists(destPath))
-                    File.Delete(destPath);
-
-                wkb.SaveAs(Filename: destPath
-                    , FileFormat: XlFileFormat.xlExcel8);
-                wkb.Close();
-                wrapper.Dispose();
-
-                return destPath;
-            }
+            var strategy = new SolicitacaoWriterStrategy(solicitacao);
+            var writer = new XLWriter(Path.Combine(siteRoot,"Excel/Planilhas/"), strategy);
+            writer.WriteAll(destination);
+            
         }
-
-        private static void WriteToXl(Worksheet sheet, Models.Solicitacao solicitacao)
-        {
-            sheet.Range["FullName"].Value = solicitacao.User.FullName;
-            sheet.Range["DataSolicitacao"].Value = solicitacao.DataSolicitacao.ToShortDateString();
-            sheet.Range["DataEntrega"].Value = solicitacao.DataEntrega.ToShortDateString();
-            sheet.Range["CC"].Value = solicitacao.Codificacao.CentroDeCusto.ToString();
-            sheet.Range["CM"].Value = solicitacao.Codificacao.ContaMemo.ToString();
-            sheet.Range["Numero"].Value = string.Format(@"{0}\{1}", solicitacao.Ano, solicitacao.Seq);
-            sheet.Range["Fornecedor"].Value = solicitacao.Fornecedor.Nome;
-            //Fone
-
-            int i = 1;
-            foreach (Reprografia.Models.Item item in solicitacao.Itens)
-            {
-                sheet.Range["Titulo" + i].Value = item.Descricao;
-                sheet.Range["Paginas" + i].Value = item.Paginas.ToString();
-                sheet.Range["Copias" + i].Value = item.Paginas.ToString();
-                sheet.Range["GramposACavalo" + i].Value = item.GramposACavalo ? "X" : "";
-                sheet.Range["GramposLaterais" + i].Value = item.GramposLaterais ? "X" : "";
-                sheet.Range["Espiral" + i].Value = item.Espiral ? "X" : "";
-                sheet.Range["CapaEmPVC" + i].Value = item.CapaEmPVC ? "X" : "";
-                sheet.Range["CapaEmPapel" + i].Value = item.CapaEmPapel ? "X" : "";
-                sheet.Range["Transparencia" + i].Value = item.Transparencia ? "X" : "";
-                sheet.Range["Reduzido" + i].Value = item.Reduzido ? "X" : "";
-                sheet.Range["Ampliado" + i].Value = item.Ampliado ? "X" : "";
-                sheet.Range["Digitacao" + i].Value = item.Digitacao ? "X" : "";
-                sheet.Range["SemAcabamento" + i].Value = item.SemAcabamento ? "X" : "";
-                sheet.Range["Grampear" + i].Value = item.Grampear ? "X" : "";
-                sheet.Range["PretoBranco" + i].Value = item.PretoBranco ? "X" : "";
-                sheet.Range["FrenteVerso" + i].Value = item.FrenteVerso ? "X" : "";
-                sheet.Range["SoFrente" + i].Value = item.SoFrente ? "X" : "";
-                sheet.Range["CortarAoMeio" + i].Value = item.CortarAoMeio ? "X" : "";
-                i++;
-            }
-        }
-
 
         internal static IQueryable<Reprografia.Models.Solicitacao> GetByCancelavel(bool cancelavel)
         {

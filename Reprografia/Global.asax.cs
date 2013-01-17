@@ -41,7 +41,7 @@ namespace Reprografia
             RegisterRoutes(RouteTable.Routes);
 
 //#if DEBUG
-//            Database.SetInitializer(new ReprografiaInitializer());
+            Database.SetInitializer(new ReprografiaInitializer());
 //#endif
         }
     }

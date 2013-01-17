@@ -14,7 +14,7 @@
     @Html.HiddenFor(model => model.Id)
 @*Lista de Items*@
     <div id="itemContainer">
-        @foreach (var item in Model.ItemsAvaliacao)
+        @foreach (var item in Model.ItensAvaliacao)
         {
             Html.RenderPartial("ItemAvaliacaoEditorLine", item);
         }

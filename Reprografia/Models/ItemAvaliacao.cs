@@ -11,79 +11,78 @@ namespace Reprografia.Models
         [Key]
         public int Id { get; set; }
 
-        public int ItemId { get; set; }
+        //[ForeignKey("Item")]
+        //public int Item_Id { get; set; }
+
+        [ForeignKey("Id")]
         public virtual Item Item { get; set; }
 
         public int AvaliacaoId { get; set; }
         public virtual Avaliacao Avaliacao { get; set; }
 
-        #region Propriedades de formulário
+        public string Prazo { get; set; }
+        public string Nitidez { get; set; }
 
-        public AvaliacaoNotaEnum Prazo { get; set; }
-        public AvaliacaoNotaEnum Nitidez { get; set; }
-
-        [Display(Name="Paginação")]
-        public AvaliacaoNotaEnum Paginacao { get; set; }
-        public AvaliacaoNotaEnum Quantidade { get; set; }
-        public AvaliacaoNotaEnum Matriz { get; set; }
-        public AvaliacaoNotaEnum Acabamento { get; set; }
+        [Display(Name = "Paginação")]
+        public string Paginacao { get; set; }
+        public string Quantidade { get; set; }
+        public string Matriz { get; set; }
+        public string Acabamento { get; set; }
 
         public double GetSatisfacao()
         {
-            //n[AvaliacaoNotaEnum.Aceitavel]/ n[AvaliacaoNotaEnum.Aceitavel] + n[AvaliacaoNotaEnum.NaoAceitavel]
+            //n[AvaliacaoNotaEnum.Aceitavel] / (n[AvaliacaoNotaEnum.Aceitavel] + n[AvaliacaoNotaEnum.NaoAceitavel])
             int aceitavel = 0;
             int nAceitavel = 0;
 
-            switch (this.Prazo)
+            switch ((AvaliacaoNotaEnum)this.Prazo[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
-            switch (this.Nitidez)
+            switch ((AvaliacaoNotaEnum)this.Nitidez[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
-            switch (this.Paginacao)
+            switch ((AvaliacaoNotaEnum)this.Paginacao[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
-            switch (this.Quantidade)
+            switch ((AvaliacaoNotaEnum)this.Quantidade[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
-            switch (this.Matriz)
+            switch ((AvaliacaoNotaEnum)this.Matriz[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
-            switch (this.Acabamento)
+            switch ((AvaliacaoNotaEnum)this.Acabamento[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
-            return aceitavel / aceitavel + nAceitavel;
+            return aceitavel / (aceitavel + nAceitavel);
         }
 
-        [DisplayFormat(DataFormatString="p")]
+        [DisplayFormat(DataFormatString = "p")]
         [Display(Name = "Satisfação")]
         public double Satisfacao { get; set; }
 
-        #endregion
-
         public ItemAvaliacao(Models.Item item)
+            : this()
         {
             this.Item = item;
         }
-        public ItemAvaliacao()
-        {
-        }
+
+        public ItemAvaliacao() { }
     }
 }

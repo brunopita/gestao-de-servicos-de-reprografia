@@ -21,6 +21,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -155,10 +159,11 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\AvaliacaoBL.cs" />
     <Compile Include="BusinessLogic\BusinessLogicException.cs" />
+    <Compile Include="Data\XL\AvaliacaoWriterStrategy.cs" />
+    <Compile Include="Data\XL\SolicitacaoWriterStrategy.cs" />
     <Compile Include="Data\XL\XLWriter.cs" />
     <Compile Include="Data\XL\XlWriterStrategy.cs" />
     <Compile Include="lib\DataRangeAttribute.cs" />
-    <Compile Include="lib\ExcelWrapper.cs" />
     <Compile Include="BusinessLogic\Reason.cs" />
     <Compile Include="BusinessLogic\SolicitacaoBL.cs" />
     <Compile Include="Controllers\AccountController.cs" />
