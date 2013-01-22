@@ -233,6 +233,8 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
+    <Content Include="Excel\Planilhas\Avaliacao.xls" />
+    <Content Include="Excel\Planilhas\Solicitacao.xls" />
     <None Include="Properties\PublishProfiles\FTPsuico.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="scratch.txt" />
@@ -315,7 +317,6 @@
     <Content Include="Views\Shared\ItemAvaliacaoEditorLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Excel\Planilhas\Solicitacao.xlt" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Solicitacao\Admin.cshtml" />
@@ -325,9 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Excel\Planilhas\Avaliacao.xlt" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

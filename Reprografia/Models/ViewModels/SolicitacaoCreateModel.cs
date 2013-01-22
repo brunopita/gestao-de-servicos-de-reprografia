@@ -12,7 +12,7 @@ namespace Reprografia.Models.ViewModels
         public SolicitacaoCreateModel()
         {
             this.Formatos = new SelectList(new[] { "A4", "A3", "A5" });
-            this.Suportes = new SelectList(new[] { "E-Mail", "Zipdrive", "Papel", "CD" });
+            this.Suportes = new SelectList(new[] { "Zipdrive", "Papel", "CD" }, "Papel");
         }
 
         public Solicitacao Solicitacao { get; set; }
