@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "Criar";
 }
-<h2>
-    Criar</h2>
+<h2>Nova Solicitacao: @Model.Solicitacao.AnoSeq</h2>
 <link href="@Url.Content("~/Content/ItemEditor.css")" type="text/css" rel="stylesheet" />
+<link href="@Url.Content("~/Content/Solicitacao/Create.css")" type="text/css" rel="stylesheet" />
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
@@ -19,66 +19,76 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Solicitacao</legend>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Solicitacao.Formato)
+    <fieldset class="main">
+        <legend>Campos de cadastro</legend>
+        <div class="field" id="field-formato">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Formato)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.Formato, Model.Formatos)
+                @Html.ValidationMessageFor(model => model.Solicitacao.Formato)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.Solicitacao.Formato, Model.Formatos)
-            @Html.ValidationMessageFor(model => model.Solicitacao.Formato)
+        <div class="field" id="field-area">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Area)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.AreaId,
+                        Model.Areas)
+                @Html.ValidationMessageFor(model => model.Solicitacao.AreaId)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Solicitacao.Area)
+        <div class="field" id="field-fornecedor">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Fornecedor)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.FornecedorId,
+                        Model.Fornecedores)
+                @Html.ValidationMessageFor(model => model.Solicitacao.FornecedorId)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.Solicitacao.AreaId,
-                Model.Areas)
-            @Html.ValidationMessageFor(model => model.Solicitacao.AreaId)
+        <div class="field" id="field-data-entrega">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.DataEntrega)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Solicitacao.DataEntrega)
+                @Html.ValidationMessageFor(model => model.Solicitacao.DataEntrega)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Solicitacao.Fornecedor)
+        <div class="field" id="field-codificacao">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Codificacao)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.CodificacaoId,
+                        Model.Codificacoes)
+                @Html.ValidationMessageFor(model => model.Solicitacao.CodificacaoId)
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.Solicitacao.FornecedorId,
-                Model.Fornecedores)
-            @Html.ValidationMessageFor(model => model.Solicitacao.FornecedorId)
+        <div class="field" id="field-suporte">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Suporte)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.Suporte, Model.Suportes)
+                @Html.ValidationMessageFor(model => model.Solicitacao.Suporte)
+            </div>
         </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Solicitacao.DataEntrega)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Solicitacao.DataEntrega)
-            @Html.ValidationMessageFor(model => model.Solicitacao.DataEntrega)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Solicitacao.Codificacao)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.Solicitacao.CodificacaoId,
-                Model.Codificacoes)
-            @Html.ValidationMessageFor(model => model.Solicitacao.CodificacaoId)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Solicitacao.Suporte)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.Solicitacao.Suporte, Model.Suportes)
-            @Html.ValidationMessageFor(model => model.Solicitacao.Suporte)
-        </div>
-        @*Lista de Items*@
-        <div id="itemContainer">
-            @{
-                //ViewDataDictionary viewData = new ViewDataDictionary();
-                //viewData.Add(new KeyValuePair<string, object>("template", false));
-                Html.RenderPartial("ItemEditorLine", new Reprografia.Models.Item());
-            }
-        </div>
-        <a href="#" onclick="viewModel.addNew(); return false;">Adicionar Item</a>
-        <p>
-            <input type="submit" value="Criar" />
-        </p>
     </fieldset>
+@*Lista de Items*@
+    <div id="itemContainer">
+        @{
+    //ViewDataDictionary viewData = new ViewDataDictionary();
+    //viewData.Add(new KeyValuePair<string, object>("template", false));
+    Html.RenderPartial("ItemEditorLine", new Reprografia.Models.Item());
+        }
+    </div>
+    <input type="button" onclick="viewModel.addNew(); return false;" value="Adicionar Item"></input>
+    <input type="submit" value="Criar Solicitação" />
 }
 <div>
     @Html.ActionLink("Voltar para a Listagem", "Index")

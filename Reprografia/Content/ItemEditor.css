@@ -10,8 +10,12 @@ div.item-field
 {
     float: left;
     width: 30%;
-    line-height: 2;
 }
+
+fieldset.item-line-main .item-field {
+  line-height: 2;
+}
+
 div.item-field > span /* Mensagem de validação */
 {
     display: block;
@@ -21,3 +25,25 @@ fieldset.item-avaliacao-line > div.item-field > select
     float: right;
     margin-right: 5%;
 }
+
+fieldset.item-line > fieldset {
+  margin: 0 1em;
+  border: 1px solid #ddd;
+  padding: .5em;
+}
+
+fieldset.item-line > legend {
+  padding-right: 1em;
+}
+
+div.item-field {
+  min-width: 30%;
+  margin: auto 1%;
+}
+
+fieldset.item-line > fieldset > legend{
+  font-size: 1.1em;
+  padding: 0 .75em;
+  font-weight: normal;
+}
+

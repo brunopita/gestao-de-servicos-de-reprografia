@@ -197,14 +197,9 @@ display:block;
 /* FORM LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
-fieldset {
-	padding:0;
-	margin:0;
-	border:none;
-}
-
 legend {
-	display:none;
+	font-weight: bold;
+	font-size: large;
 }
 
 textarea {
@@ -229,16 +224,14 @@ select {
 	color: #444;
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="button"] {
 	font-size: 1.2em;
 	padding: 5px;
 }
 
-
-#itemContainer > fieldset
-{
-	padding:10px 0;
-	border-bottom:1px solid #F3A381;
+fieldset {
+	border-style: solid;
+	border: none;
 }
 
 .item-line .text-box
@@ -256,11 +249,6 @@ clear:both;
 	float:left;
 	margin-left:0px;
 	margin-right:20px;
-}
-
-div.item-field
-{
-	width:33% !important;
 }
 
 /* TABLE

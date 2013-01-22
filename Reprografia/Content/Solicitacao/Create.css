@@ -1,0 +1,28 @@
+﻿.field {
+  float: left;
+  min-width: 30%;
+  margin: auto 1%;
+}
+#field-area {
+  display: inline;
+}
+
+fieldset.item-line {
+  padding: 10px 0;
+  margin: .5em;
+  border-top: 1px solid #F3A381;
+}
+
+fieldset.main {
+  margin: 0 1em;
+  border: 1px solid #ddd;
+  padding: .75em;
+}
+
+fieldset.main > legend {
+  padding: 0 1.2em;
+}
+
+form {
+  margin-bottom: 2em;
+}
