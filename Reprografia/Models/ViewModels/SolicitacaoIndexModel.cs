@@ -23,7 +23,7 @@ namespace Reprografia.Models.ViewModels
         {
             this.Id = solicitacao.Id;
             this.Ano = solicitacao.Ano;
-            this.Seq = solicitacao.Seq;
+            this.AnoSeq = solicitacao.AnoSeq;
             this.Formato = solicitacao.Formato;
             this.UserName = solicitacao.UserName;
             this.Suporte = solicitacao.Suporte;
@@ -32,8 +32,8 @@ namespace Reprografia.Models.ViewModels
         }
 
         public int Id { get; set; }
+        public string AnoSeq { get; set; }
         public int Ano { get; set; }
-        public int Seq { get; set; }
         public string Formato { get; set; }
 
 
