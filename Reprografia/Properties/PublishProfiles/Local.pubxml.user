@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>2012-12-20T12:22:54.0476035-02:00</TimeStampOfAssociatedLegacyPublishXmlFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>05/30/2012 13:19:11</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.xml">
+      <publishTime>05/30/2012 13:19:11</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>05/30/2012 13:19:11</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.xml">
+      <publishTime>05/30/2012 13:19:11</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.xml">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/Omu.ValueInjecter.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/Omu.ValueInjecter.xml">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/Reprografia.dll">
+      <publishTime>05/30/2012 14:27:38</publishTime>
+    </File>
+    <File Include="bin/Reprografia.pdb">
+      <publishTime>05/30/2012 14:27:38</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.DataAnnotations.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Data.DataSetExtensions.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Data.Entity.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.EnterpriseServices.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.xml">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.xml">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.xml">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Services.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>05/30/2012 13:19:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.xml">
+      <publishTime>05/30/2012 13:19:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>05/30/2012 13:19:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>05/30/2012 13:19:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.xml">
+      <publishTime>05/30/2012 13:19:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.xml">
+      <publishTime>05/30/2012 13:19:13</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>05/30/2012 13:19:13</publishTime>
+    </File>
+    <File Include="Content/admin.css">
+      <publishTime>05/30/2012 13:19:13</publishTime>
+    </File>
+    <File Include="Content/img/admin.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/img/bgMenu.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/img/bgTopo.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/img/lupa.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/ItemEditor.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.accordion.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.all.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.autocomplete.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.base.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.button.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.core.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.datepicker.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.dialog.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.progressbar.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.resizable.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.selectable.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.slider.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tabs.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.theme.css">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Excel/Planilhas/Avaliacao.xlt">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Excel/Planilhas/Solicitacao.xlt">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="scratch.txt">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Scripts/datepicker.js">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.5.1-vsdoc.js">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.5.1.js">
+      <publishTime>05/30/2012 13:19:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.5.1.min.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.11.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.11.min.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.quicksearch.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate-vsdoc.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftAjax.debug.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftAjax.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcAjax.debug.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcAjax.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcValidation.debug.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcValidation.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-1.7.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-1.7.min.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Scripts/mustache.js">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePassword.cshtml">
+      <publishTime>05/30/2012 13:46:13</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePasswordSuccess.cshtml">
+      <publishTime>05/30/2012 13:38:38</publishTime>
+    </File>
+    <File Include="Views/Account/LogOn.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Avaliacao/Delete.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Avaliacao/Details.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Avaliacao/Edit.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/Date.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Shared/EditorTemplates/DateTime.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Shared/ItemAvaliacaoEditorLine.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Shared/ItemEditorLine.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Shared/ItemList.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>05/30/2012 13:24:51</publishTime>
+    </File>
+    <File Include="Views/Shared/_LogOnPartial.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Views/Solicitacao/Admin.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Solicitacao/Create.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Solicitacao/Delete.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Solicitacao/Details.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Solicitacao/Index.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Solicitacao/RowDisplayPartial.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Solicitacao/RowHeaderPartial.cshtml">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>05/30/2012 13:19:35</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/30/2012 13:19:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

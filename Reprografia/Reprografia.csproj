@@ -233,6 +233,8 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
+    <None Include="Properties\PublishProfiles\FTPsuico.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="scratch.txt" />
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
