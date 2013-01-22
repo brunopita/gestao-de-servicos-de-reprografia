@@ -13,7 +13,7 @@ namespace Reprografia.BusinessLogic
     public static class SolicitacaoBL
     {
         public const int CODIFICACAO_DEFAULT_ID = 23;
-        public const int DIAS_ESPERADOS_PARA_ENTREGA = 5;
+        public const int DIAS_ESPERADOS_PARA_ENTREGA = 3;
         private static Data.ReprografiaContext db = new Data.ReprografiaContext();
 
         public static Models.Solicitacao CriarSolicitacao(Models.Solicitacao solicitacao, int ano = 0)
