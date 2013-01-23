@@ -3,3 +3,4 @@
 /Excel/*/*.xls
 */examples/
 *.suo
+*.user
