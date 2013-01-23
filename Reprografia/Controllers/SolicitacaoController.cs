@@ -166,7 +166,8 @@ namespace Reprografia.Controllers
         public ActionResult Admin()
         {
             var solicitacoes = db.Solicitacoes
-                .Include("Avaliacao");
+                .Include("Avaliacao")
+                .Include("User");
 
             //Inicializar ViewModel a partir dos modelos de dados
             List<SolicitacaoIndexModel> model = new List<SolicitacaoIndexModel>();
@@ -174,6 +175,7 @@ namespace Reprografia.Controllers
             {
                 SolicitacaoIndexModel modelItem = new SolicitacaoIndexModel();
                 modelItem.InjectFrom(s.Avaliacao, s);
+                modelItem.InsertFrom(s);
                 modelItem.Cancelavel = s.IsCancelavel();
                 model.Add(modelItem);
             }

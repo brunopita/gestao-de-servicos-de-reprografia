@@ -26,6 +26,7 @@ namespace Reprografia.Models.ViewModels
             this.AnoSeq = solicitacao.AnoSeq;
             this.Formato = solicitacao.Formato;
             this.UserName = solicitacao.UserName;
+            this.UserFullName = solicitacao.User.FullName;
             this.Suporte = solicitacao.Suporte;
             this.DataLimite = solicitacao.Avaliacao.DataLimite;
             this.Avaliado = solicitacao.Avaliacao.Avaliado;
@@ -43,6 +44,7 @@ namespace Reprografia.Models.ViewModels
         public DateTime DataSolicitacao { get; set; }
 
         public string UserName { get; set; }
+        public string UserFullName { get; set; }
         public string Suporte { get; set; }
 
 
