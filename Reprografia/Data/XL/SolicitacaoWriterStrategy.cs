@@ -49,7 +49,7 @@ namespace Reprografia.Data.XL
                 values.Add("Titulo" + i, item.Descricao);
                 values.Add("Paginas" + i, item.Paginas.ToString());
                 values.Add("Copias" + i, item.Copias.ToString());
-                values.Add("Total" + i, (item.Paginas + item.Copias).ToString());
+                values.Add("Total" + i, (item.Paginas * item.Copias).ToString());
                 values.Add("GramposACavalo" + i, item.GramposACavalo ? "X" : "");
                 values.Add("GramposLaterais" + i, item.GramposLaterais ? "X" : "");
                 values.Add("Espiral" + i, item.Espiral ? "X" : "");

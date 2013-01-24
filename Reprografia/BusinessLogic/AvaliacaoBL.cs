@@ -29,8 +29,11 @@ namespace Reprografia.BusinessLogic
                                where s.User.UserName == user.UserName
                                select s;
 
+            DateTime agora = DateTime.Now;
+
             //Verificar se avaliações estão pendentes
-            return solicitacoes.Any(s => !s.Avaliacao.Avaliado);
+            return solicitacoes.Any(s => !s.Avaliacao.Avaliado &&
+                s.Avaliacao.DataLimite < agora); // Regra para dias corridos para avaliar
         }
 
         public static Models.Avaliacao CriarAvaliacao()

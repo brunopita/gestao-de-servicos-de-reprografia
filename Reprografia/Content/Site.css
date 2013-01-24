@@ -264,7 +264,7 @@ table {
 table td {
 	padding: 5px;
 	border: solid 1px #F4E8E8;
-	padding:10px;
+	padding: .5em;
 }
 
 table th {
@@ -273,7 +273,7 @@ table th {
 	background: #E35315 url(img/bgMenu.png) repeat-x bottom center;
 	font-weight:normal;
 	color:white;
-	padding:10px;
+	padding: .6em;
 }
 
 table tr:nth-child(2n-1) td
