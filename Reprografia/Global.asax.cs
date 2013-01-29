@@ -39,10 +39,10 @@ namespace Reprografia
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-
-//#if DEBUG
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ReprografiaContext, Migrations.Configuration>());
+            //#if DEBUG
             //Database.SetInitializer(new ReprografiaInitializer());
-//#endif
+            //#endif
         }
     }
 }
