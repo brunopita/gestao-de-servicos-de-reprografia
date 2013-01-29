@@ -96,5 +96,8 @@ namespace Reprografia.Models
                 return String.Format("{0}-{1}", this.Ano.ToString(), this.Seq.ToString());
             }
         }
+
+        [Display(Name="Comentário")]
+        public string Comment { get; set; }
     }
 }

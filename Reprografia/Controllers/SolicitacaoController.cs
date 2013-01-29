@@ -67,6 +67,12 @@ namespace Reprografia.Controllers
         public ActionResult Create()
         {
             var model = new SolicitacaoCreateModel();
+            Fill(model);
+            return View(model);
+        }
+
+        private void Fill(SolicitacaoCreateModel model)
+        {
             model.Areas = new SelectList(db.Areas, "Id", "Nome", 1);
 
             var itemsCodificacoes = db.Codificacoes
@@ -87,7 +93,6 @@ namespace Reprografia.Controllers
 
             model.Fornecedores = new SelectList(db.Fornecedores, "Id", "Nome", 1);
             model.Solicitacao = SolicitacaoBL.CriarSolicitacao();
-            return View(model);
         }
 
         [HttpPost]
@@ -109,27 +114,8 @@ namespace Reprografia.Controllers
                             ViewBag.error = "Erro na autenticação do usuário";
                             break;
                     }
-                //data.Areas = new SelectList(db.Areas, "Id", "Nome", 1);
-                //data.Codificacoes = new SelectList(
-                //    db.Codificacoes
-                //    .OrderBy(c => c.CentroDeCusto)
-                //    .ThenBy(c => c.ContaMemo)
-                //    .AsEnumerable()
-                //    .Select(c =>
-                //        new
-                //        {
-                //            Nome = string.Format("{2} - {3} : {0} - {1}",
-                //                c.DescricaoCentroDeCusto,
-                //                c.DescricaoContaMemo,
-                //                c.CentroDeCusto,
-                //                c.ContaMemo)
-                //        ,
-                //            Id = c.Id
-                //        })
-                //        , "Id", "Nome", 1);
-                //data.Fornecedores = new SelectList(db.Fornecedores, "Id", "Nome", 1);
-
-                return Create();
+                Fill(data);
+                return View(data);
             }
 
             try
@@ -141,7 +127,6 @@ namespace Reprografia.Controllers
 
                 db.Solicitacoes.Add(target);
 
-                //Criar avaliacao correspondente
                 var avaliacao = AvaliacaoBL.CriarAvaliacao(target);
 
                 db.Avaliacoes.Add(avaliacao);
@@ -159,7 +144,7 @@ namespace Reprografia.Controllers
                         break;
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", new { id = data.Solicitacao.Id });
         }
 
         [HttpGet, Authorize(Roles = "Administrator")]

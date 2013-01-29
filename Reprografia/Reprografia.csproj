@@ -177,6 +177,15 @@
     <Compile Include="lib\HtmlHelpers.cs" />
     <Compile Include="lib\ReprografiaMembershipProvider.cs" />
     <Compile Include="lib\ReprografiaRoleProvider.cs" />
+    <Compile Include="Migrations\201301171808264_InitialCreate.cs" />
+    <Compile Include="Migrations\201301171808264_InitialCreate.Designer.cs">
+      <DependentUpon>201301171808264_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201301291136573_AddSolicitacaoComment.cs" />
+    <Compile Include="Migrations\201301291136573_AddSolicitacaoComment.Designer.cs">
+      <DependentUpon>201301291136573_AddSolicitacaoComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Account\Role.cs" />
     <Compile Include="Models\Account\User.cs" />

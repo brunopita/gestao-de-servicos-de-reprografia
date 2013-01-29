@@ -81,6 +81,15 @@
                 @Html.ValidationMessageFor(model => model.Solicitacao.Suporte)
             </div>
         </div>
+        <div class="field" id="field-suporte">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Comment)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Solicitacao.Comment, new { style= "width: 40em;" })
+                @Html.ValidationMessageFor(model => model.Solicitacao.Comment)
+            </div>
+        </div>
     </fieldset>
 @*Lista de Items*@
     <div id="itemContainer">

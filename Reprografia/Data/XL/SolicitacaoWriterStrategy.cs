@@ -40,8 +40,9 @@ namespace Reprografia.Data.XL
             values.Add("DataEntrega", solicitacao.DataEntrega.ToShortDateString());
             values.Add("CC", solicitacao.Codificacao.CentroDeCusto.ToString());
             values.Add("CM", solicitacao.Codificacao.ContaMemo.ToString());
-            values.Add("Numero", string.Format(@"{0}\{1}", solicitacao.Ano, solicitacao.Seq));
+            values.Add("Numero", string.Format(@"{0}-{1}", solicitacao.Ano, solicitacao.Seq));
             values.Add("Fornecedor", solicitacao.Fornecedor.Nome);
+            values.Add("Comentario", solicitacao.Comment);
 
             int i = 1;
             foreach (Reprografia.Models.Item item in solicitacao.Itens)
