@@ -99,7 +99,7 @@ namespace Reprografia.BusinessLogic
 
         internal static bool IsCancelavel(this Reprografia.Models.Solicitacao solicitacao)
         {
-            return solicitacao.DataEntrega >= DateTime.Now.Date && !solicitacao.Avaliacao.Avaliado;
+            return !solicitacao.Avaliacao.Avaliado;
         }
     }
 }
