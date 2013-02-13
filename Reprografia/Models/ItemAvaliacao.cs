@@ -32,45 +32,53 @@ namespace Reprografia.Models
         public double GetSatisfacao()
         {
             //n[AvaliacaoNotaEnum.Aceitavel] / (n[AvaliacaoNotaEnum.Aceitavel] + n[AvaliacaoNotaEnum.NaoAceitavel])
-            int aceitavel = 0;
-            int nAceitavel = 0;
+            double aceitavel = 0.0;
+            double nAceitavel = 0.0;
 
             switch ((AvaliacaoNotaEnum)this.Prazo[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
+                case AvaliacaoNotaEnum.NA: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
             switch ((AvaliacaoNotaEnum)this.Nitidez[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
+                case AvaliacaoNotaEnum.NA: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
             switch ((AvaliacaoNotaEnum)this.Paginacao[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
+                case AvaliacaoNotaEnum.NA: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
             switch ((AvaliacaoNotaEnum)this.Quantidade[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
+                case AvaliacaoNotaEnum.NA: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
             switch ((AvaliacaoNotaEnum)this.Matriz[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
+                case AvaliacaoNotaEnum.NA: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
 
             switch ((AvaliacaoNotaEnum)this.Acabamento[0])
             {
                 case AvaliacaoNotaEnum.A: aceitavel++; break;
+                case AvaliacaoNotaEnum.NA: aceitavel++; break;
                 case AvaliacaoNotaEnum.X: nAceitavel++; break;
             }
-            return aceitavel / (aceitavel + nAceitavel);
+
+            this.Satisfacao = aceitavel / (aceitavel + nAceitavel);
+            return this.Satisfacao;
         }
 
         [DisplayFormat(DataFormatString = "p")]

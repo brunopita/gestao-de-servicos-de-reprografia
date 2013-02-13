@@ -29,7 +29,6 @@ namespace Reprografia.Data.XL
             set
             {
                 _avaliacao = value;
-                // Preencher values com valores necessários da Avaliacao
                 FillValues(value);
             }
         }
@@ -40,19 +39,24 @@ namespace Reprografia.Data.XL
             values.Add("Id", string.Format("{0}-{1}", avaliacao.Solicitacao.Ano, avaliacao.Solicitacao.Seq));
             values.Add("FullName", avaliacao.Solicitacao.User.FullName);
             values.Add("Date", avaliacao.DataAvaliado.ToString());
+            values.Add("Total", avaliacao.ItensAvaliacao.AsEnumerable()
+                .Average(a => a.GetSatisfacao()).ToString("0%"));
 
-            int i = 1;
-            foreach (ItemAvaliacao item in avaliacao.ItensAvaliacao)
             {
-                values.Add("Titulo" + i, item.Item.Descricao);
+                int i = 1;
+                foreach (ItemAvaliacao item in avaliacao.ItensAvaliacao)
+                {
+                    values.Add("Titulo" + i, item.Item.Descricao);
 
-                values.Add("Prazo" + i, item.Prazo.ToXlString());
-                values.Add("Nitidez" + i, item.Nitidez.ToXlString());
-                values.Add("Paginacao" + i, item.Paginacao.ToXlString());
-                values.Add("Quantidade" + i, item.Quantidade.ToXlString());
-                values.Add("Matriz" + i, item.Matriz.ToXlString());
-                values.Add("Acabamento" + i, item.Acabamento.ToXlString());
-                i++;
+                    values.Add("Prazo" + i, item.Prazo.ToXlString());
+                    values.Add("Nitidez" + i, item.Nitidez.ToXlString());
+                    values.Add("Paginacao" + i, item.Paginacao.ToXlString());
+                    values.Add("Quantidade" + i, item.Quantidade.ToXlString());
+                    values.Add("Matriz" + i, item.Matriz.ToXlString());
+                    values.Add("Acabamento" + i, item.Acabamento.ToXlString());
+                    values.Add("Total" + i, item.GetSatisfacao().ToString("0%"));
+                    i++;
+                }
             }
         }
 
