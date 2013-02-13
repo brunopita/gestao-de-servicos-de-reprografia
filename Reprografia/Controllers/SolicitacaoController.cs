@@ -147,30 +147,16 @@ namespace Reprografia.Controllers
             return RedirectToAction("Details", new { id = data.Solicitacao.Id });
         }
 
-        [HttpGet, Authorize(Roles = "Administrator")]
-        public ActionResult Admin()
-        {
-            var solicitacoes = db.Solicitacoes
-                .Include("Avaliacao")
-                .Include("User");
-
-            //Inicializar ViewModel a partir dos modelos de dados
-            List<SolicitacaoIndexModel> model = new List<SolicitacaoIndexModel>();
-            foreach (var s in solicitacoes)
-            {
-                SolicitacaoIndexModel modelItem = new SolicitacaoIndexModel();
-                modelItem.InjectFrom(s.Avaliacao, s);
-                modelItem.InsertFrom(s);
-                modelItem.Cancelavel = s.IsCancelavel();
-                model.Add(modelItem);
-            }
-            return View(model);
-        }
+        
 
         [HttpGet, Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id)
         {
             var model = db.Solicitacoes.Find(id);
+            if (model == null)
+            {
+                throw new HttpException(404, "Solicitação não encontrada")
+            }
             return View(model);
         }
 
