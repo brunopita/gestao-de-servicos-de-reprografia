@@ -21,7 +21,9 @@ namespace Reprografia.BusinessLogic
             if (ano == 0)
                 ano = DateTime.Now.Year;
 
-            solicitacao.DataEntrega = DateTime.Now.AddDays(DIAS_ESPERADOS_PARA_ENTREGA).Date;
+            if (solicitacao.DataEntrega == null)
+                solicitacao.DataEntrega = DateTime.Now.AddDays(DIAS_ESPERADOS_PARA_ENTREGA).Date;
+
             //Determinar numero sequencial para inserção no banco
             DeterminarSeq(solicitacao, ano);
             solicitacao.DataSolicitacao = DateTime.Now.Date;
