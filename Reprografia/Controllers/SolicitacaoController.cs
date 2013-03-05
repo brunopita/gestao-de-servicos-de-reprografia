@@ -155,7 +155,7 @@ namespace Reprografia.Controllers
             var model = db.Solicitacoes.Find(id);
             if (model == null)
             {
-                throw new HttpException(404, "Solicitação não encontrada")
+                throw new HttpException(404, "Solicitação não encontrada");
             }
             return View(model);
         }

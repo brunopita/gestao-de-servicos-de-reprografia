@@ -10,12 +10,18 @@ using Reprografia.BusinessLogic;
 
 namespace Reprografia.Controllers
 {
+    [Authorize(Roles="Administrator")]
     public class AdminController : Controller
     {
         private ReprografiaContext db = new ReprografiaContext();
 
-        [HttpGet, Authorize(Roles = "Administrator")]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet, Authorize(Roles = "Administrator")]
+        public ActionResult SolicitacoesList()
         {
             var solicitacoes = db.Solicitacoes
                 .Include("Avaliacao")
@@ -48,9 +54,16 @@ namespace Reprografia.Controllers
 
             solicitacoes.Where(s => s.Ano == year && s.DataSolicitacao.Month == month);
 
+            if (solicitacoes.Count() == 0)
+                throw new HttpException(404, "Nenhuma solicitação encontrada para o mês selecionado");
+
             List<ActionReportViewModel> model = new List<ActionReportViewModel>(solicitacoes.Count());
             foreach (var s in solicitacoes)
                 model.Add(new ActionReportViewModel(s));
+
+            //Passar parâmetros de filtro para exibição na view
+            ViewBag.Year = year;
+            ViewBag.Month = month;
 
             return View(model);
         }

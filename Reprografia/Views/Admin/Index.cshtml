@@ -1,58 +1,11 @@
-﻿@model IEnumerable<Reprografia.Models.ViewModels.SolicitacaoIndexModel>
-@using Reprografia.BusinessLogic;
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
-<link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/admin.css")" />
-<div id="header">
-    <h2>Solicitações</h2>
-    @if (ViewBag.PodeCriarSolicitacao == StatusCriacaoSolicitacao.Permitido)
-    {
-        <p>
-            @Html.ActionLink("Nova", "Create")
-        </p>
-    }
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <p class="error">
-            @TempData["ErrorMessage"]
-        </p>
-    }
-@*Busca*@
-    <input type="text" id="search" />
-</div>
-<table>
-    <thead>
-        <tr>
-            @{Html.RenderPartial("RowHeaderPartial");}
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                @{Html.RenderPartial("RowDisplayPartial", item);}
-                <td>
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
-                    <span class="divider">| </span>
-                    @if (item.Cancelavel)
-                    {
-                        @Html.ActionLink("Indeferir", "Delete", new { id = item.Id })
-                        <span class="divider">| </span>
-                    }
-                    @Html.ActionLink("Solicitação", "Xl", new { id = item.Id })
-                    @if (item.Avaliado)
-                    {
-                        <span class="divider">| </span>
-                        @Html.ActionLink("Avaliação", "Xl", "Avaliacao", new { id = item.Id }, null)
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<script src="@Url.Content("~/Scripts/jquery.quicksearch.js")" type="text/javascript"></script>
-<script type="text/javascript">
-    $("input#search").quicksearch("table tbody tr")
-</script>
+
+<h2>Área administrativa</h2>
+
+<h3>Relatórios</h3>
+<ul>
+    <li>@Html.ActionLink("Listagem de solicitações", "SolicitacoesList")</li>
+    <li>@Html.ActionLink("Relatório de ações", "ActionReport")</li>
+</ul>

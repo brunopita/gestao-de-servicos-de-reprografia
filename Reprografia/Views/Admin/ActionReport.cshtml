@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Reprografia.Models.ViewModels.ActionReportViewModel>
+@{
+    ViewBag.Title = "Relatório de Ações";
+}
+
+<h2>Relatório de ações - @ViewBag.Month/@ViewBag.Year</h2>
+<table>
+    <tr>
+        <th>ID
+        </th>
+        <th>Usuário
+        </th>
+        <th>Nota
+        </th>
+        <th>Data de Solicitação
+        </th>
+        <th>Ação
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.AnoSeq, "Details", "Solicitacao", new { id = item.Id }, new { })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName) (@Html.DisplayFor(modelItem => item.SN))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataSolicitacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Acao)
+            </td>
+        </tr>
+    }
+
+</table>

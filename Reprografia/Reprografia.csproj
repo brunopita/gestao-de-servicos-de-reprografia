@@ -296,6 +296,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Admin\RowDisplayPartial.cshtml" />
     <Content Include="Views\Admin\RowHeaderPartial.cshtml" />
+    <Content Include="Views\Admin\ActionReport.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,7 +335,7 @@
   <ItemGroup>
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\SolicitacoesList.cshtml" />
     <Content Include="Views\Solicitacao\RowDisplayPartial.cshtml" />
     <Content Include="Views\Solicitacao\RowHeaderPartial.cshtml" />
     <Content Include="Views\Solicitacao\Delete.cshtml" />
