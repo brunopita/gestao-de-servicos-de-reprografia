@@ -51,9 +51,8 @@ namespace Reprografia.Controllers
             var solicitacoes = db.Solicitacoes
                 .Include("User")
                 .Include("Avaliacao")
-                .Include("Avaliacao.ItensAvaliacao");
-
-            solicitacoes.Where(s => s.Ano == year && s.DataSolicitacao.Month == month);
+                .Include("Avaliacao.ItensAvaliacao")
+                .Where(s => s.Ano == year && s.DataSolicitacao.Month == month);
 
             if (solicitacoes.Count() == 0)
                 throw new HttpException(404, "Nenhuma solicitação encontrada para o mês selecionado");
