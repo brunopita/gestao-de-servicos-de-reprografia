@@ -39,8 +39,7 @@ namespace Reprografia.Data.XL
             values.Add("Id", string.Format("{0}-{1}", avaliacao.Solicitacao.Ano, avaliacao.Solicitacao.Seq));
             values.Add("FullName", avaliacao.Solicitacao.User.FullName);
             values.Add("Date", avaliacao.DataAvaliado.ToString());
-            values.Add("Total", avaliacao.ItensAvaliacao.AsEnumerable()
-                .Average(a => a.GetSatisfacao()).ToString("0%"));
+            values.Add("Total", avaliacao.Satisfacao.ToString("0%"));
 
             {
                 int i = 1;

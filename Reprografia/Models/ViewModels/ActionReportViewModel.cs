@@ -22,6 +22,7 @@ namespace Reprografia.Models.ViewModels
             this.SN = s.User.UserName;
             this.FullName = s.User.FullName;
             this.DataSolicitacao = s.DataSolicitacao;
+            this.Satisfacao = s.Avaliacao.Satisfacao;
         }
 
         public int Id { get; set; }
@@ -32,7 +33,8 @@ namespace Reprografia.Models.ViewModels
         public string SN { get; set; }
         public string FullName { get; set; }
 
-        public int Nota { get; set; }
+        [DisplayFormat(DataFormatString = "{0:0%}")]
+        public double Satisfacao { get; set; }
 
         [Display(Name = "Data de Solicitação"),
         DataType(DataType.Date),

@@ -10,7 +10,7 @@ using Reprografia.BusinessLogic;
 
 namespace Reprografia.Controllers
 {
-    [Authorize(Roles="Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
         private ReprografiaContext db = new ReprografiaContext();
@@ -50,7 +50,8 @@ namespace Reprografia.Controllers
                 month = DateTime.Today.Month;
             var solicitacoes = db.Solicitacoes
                 .Include("User")
-                .Include("Avaliacao");
+                .Include("Avaliacao")
+                .Include("Avaliacao.ItensAvaliacao");
 
             solicitacoes.Where(s => s.Ano == year && s.DataSolicitacao.Month == month);
 

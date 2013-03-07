@@ -32,53 +32,31 @@ namespace Reprografia.Models
         public double GetSatisfacao()
         {
             //n[AvaliacaoNotaEnum.Aceitavel] / (n[AvaliacaoNotaEnum.Aceitavel] + n[AvaliacaoNotaEnum.NaoAceitavel])
-            double aceitavel = 0.0;
-            double nAceitavel = 0.0;
-
-            switch ((AvaliacaoNotaEnum)this.Prazo[0])
-            {
-                case AvaliacaoNotaEnum.A: aceitavel++; break;
-                case AvaliacaoNotaEnum.NA: aceitavel++; break;
-                case AvaliacaoNotaEnum.X: nAceitavel++; break;
-            }
-
-            switch ((AvaliacaoNotaEnum)this.Nitidez[0])
-            {
-                case AvaliacaoNotaEnum.A: aceitavel++; break;
-                case AvaliacaoNotaEnum.NA: aceitavel++; break;
-                case AvaliacaoNotaEnum.X: nAceitavel++; break;
-            }
-
-            switch ((AvaliacaoNotaEnum)this.Paginacao[0])
-            {
-                case AvaliacaoNotaEnum.A: aceitavel++; break;
-                case AvaliacaoNotaEnum.NA: aceitavel++; break;
-                case AvaliacaoNotaEnum.X: nAceitavel++; break;
-            }
-
-            switch ((AvaliacaoNotaEnum)this.Quantidade[0])
-            {
-                case AvaliacaoNotaEnum.A: aceitavel++; break;
-                case AvaliacaoNotaEnum.NA: aceitavel++; break;
-                case AvaliacaoNotaEnum.X: nAceitavel++; break;
-            }
-
-            switch ((AvaliacaoNotaEnum)this.Matriz[0])
-            {
-                case AvaliacaoNotaEnum.A: aceitavel++; break;
-                case AvaliacaoNotaEnum.NA: aceitavel++; break;
-                case AvaliacaoNotaEnum.X: nAceitavel++; break;
-            }
-
-            switch ((AvaliacaoNotaEnum)this.Acabamento[0])
-            {
-                case AvaliacaoNotaEnum.A: aceitavel++; break;
-                case AvaliacaoNotaEnum.NA: aceitavel++; break;
-                case AvaliacaoNotaEnum.X: nAceitavel++; break;
-            }
-
-            this.Satisfacao = aceitavel / (aceitavel + nAceitavel);
+            this.Satisfacao = GetSatisfacao(new string[] {
+                this.Prazo, 
+                this.Nitidez,
+                this.Paginacao,
+                this.Quantidade,
+                this.Matriz,
+                this.Acabamento
+            });
             return this.Satisfacao;
+        }
+
+        private static double GetSatisfacao(string[] notas)
+        {
+            double aceitavel = 0.0, nAceitavel = 0.0;
+
+            foreach (var nota in notas)
+                if (nota != null)
+                    switch ((AvaliacaoNotaEnum)nota[0])
+                    {
+                        case AvaliacaoNotaEnum.A: aceitavel++; break;
+                        case AvaliacaoNotaEnum.NA: aceitavel++; break;
+                        case AvaliacaoNotaEnum.X: nAceitavel++; break;
+                        default: aceitavel++; break;
+                    }
+            return aceitavel / (aceitavel + nAceitavel);
         }
 
         [DisplayFormat(DataFormatString = "p")]
