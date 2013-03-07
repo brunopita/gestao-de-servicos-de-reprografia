@@ -24,7 +24,8 @@ namespace Reprografia
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute("root", "", new { controller = "Solicitacao", action = "Index" });
+            routes.MapRoute("errors", "Error/{error}", new { controller = "Errors", action = "Error" });
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters

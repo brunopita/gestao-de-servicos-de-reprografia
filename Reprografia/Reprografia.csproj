@@ -160,6 +160,7 @@
     <Compile Include="BusinessLogic\AvaliacaoBL.cs" />
     <Compile Include="BusinessLogic\BusinessLogicException.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Data\XL\AvaliacaoWriterStrategy.cs" />
     <Compile Include="Data\XL\SolicitacaoWriterStrategy.cs" />
     <Compile Include="Data\XL\XLWriter.cs" />
@@ -298,6 +299,8 @@
     <Content Include="Views\Admin\RowHeaderPartial.cshtml" />
     <Content Include="Views\Admin\ActionReport.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Errors\Index.cshtml" />
+    <Content Include="Views\Errors\404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
