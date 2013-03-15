@@ -34,7 +34,7 @@
             <tr>
                 @{Html.RenderPartial("RowDisplayPartial", item);}
                 <td>
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.Id })
+                    @Html.ActionLink("Detalhes", "Details", "Solicitacao", new { id = item.Id }, new { })
                     <span class="divider">| </span>
                     @if (item.Cancelavel)
                     {
