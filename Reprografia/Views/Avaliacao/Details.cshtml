@@ -63,6 +63,18 @@
     </table>
 }
 
-<p>
-    @Html.ActionLink("Editar ações", "ActionEdit", new { id = Model.Id })
-</p>
+
+@using (Html.BeginForm("ActionEdit", "Avaliacao"))
+{
+    @Html.HiddenFor(model => model.Id)
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Acao)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.Acao)
+        @Html.ValidationMessageFor(model => model.Acao)
+    </div>
+    <p>
+        <input type="submit" value="Alterar Ação Corretiva" />
+    </p>
+}

@@ -59,6 +59,7 @@ namespace Reprografia.Models
         public virtual ICollection<ItemAvaliacao> ItensAvaliacao { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:0%}")]
+        [NotMapped]
         public double Satisfacao
         {
             get
@@ -67,6 +68,7 @@ namespace Reprografia.Models
             }
         }
 
+        [Display(Name = "Ação Corretiva")]
         public string Acao { get; set; }
     }
 }

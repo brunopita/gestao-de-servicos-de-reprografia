@@ -102,23 +102,6 @@ namespace Reprografia.Controllers
             };
         }
 
-
-        /// <summary>
-        /// Formulário de edição para o campo Avaliacao.Acao
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet, Authorize(Roles = "Administrator")]
-        public ActionResult ActionEdit(int id)
-        {
-            var model = db.Avaliacoes
-                .Include("ItensAvaliacao")
-                .Where(a => a.Id == id);
-
-            return View(model);
-        }
-
-
         /// <summary>
         /// Action que atualiza somente o campo Acao de uma Avaliacao
         /// </summary>
