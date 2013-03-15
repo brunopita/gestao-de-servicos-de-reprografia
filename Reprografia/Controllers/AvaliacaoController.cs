@@ -53,7 +53,7 @@ namespace Reprografia.Controllers
                 db.Avaliacoes.Attach(avaliacao);
                 foreach (var item in avaliacao.ItensAvaliacao)
                     db.Entry(item).State = EntityState.Modified;
-                
+
                 avaliacao.Avaliado = true;
                 avaliacao.DataAvaliado = DateTime.Now;
 
@@ -100,6 +100,43 @@ namespace Reprografia.Controllers
             {
                 FileDownloadName = "Avaliacao" + solicitacao.AnoSeq + ".xls"
             };
+        }
+
+
+        /// <summary>
+        /// Formulário de edição para o campo Avaliacao.Acao
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet, Authorize(Roles = "Administrator")]
+        public ActionResult ActionEdit(int id)
+        {
+            var model = db.Avaliacoes
+                .Include("ItensAvaliacao")
+                .Where(a => a.Id == id);
+
+            return View(model);
+        }
+
+
+        /// <summary>
+        /// Action que atualiza somente o campo Acao de uma Avaliacao
+        /// </summary>
+        /// <param name="avaliacao"></param>
+        /// <returns></returns>
+        [HttpPost, Authorize(Roles = "Administrator")]
+        public ActionResult ActionEdit(Avaliacao avaliacao)
+        {
+            var uAvaliacao = db.Avaliacoes.Find(avaliacao.Id);
+
+            if (uAvaliacao == null)
+                throw new HttpException(404, "Avaliacao não existente");
+
+            uAvaliacao.Acao = avaliacao.Acao;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = avaliacao.Id });
         }
 
         protected override void Dispose(bool disposing)

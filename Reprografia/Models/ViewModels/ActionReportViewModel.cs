@@ -23,6 +23,7 @@ namespace Reprografia.Models.ViewModels
             this.FullName = s.User.FullName;
             this.DataSolicitacao = s.DataSolicitacao;
             this.Satisfacao = s.Avaliacao.Satisfacao;
+            this.Acao = s.Avaliacao.Acao;
         }
 
         public int Id { get; set; }

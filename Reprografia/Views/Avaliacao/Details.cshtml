@@ -1,25 +1,68 @@
 ﻿@model Reprografia.Models.Avaliacao
-
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Avaliação - @Html.DisplayFor(model => model.Solicitacao.AnoSeq)</h2>
 
 <fieldset>
-    <legend>Avaliacao</legend>
 
-    <div class="display-label">Avaliado</div>
+    <div class="display-label">Usuário requisitante</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Solicitacao.User.FullName) (@Html.DisplayFor(m => m.Solicitacao.UserName))
+    </div>
+
+    <div class="display-label">Avaliação realizada</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Avaliado)
     </div>
 
-    <div class="display-label">DataLimite</div>
+    <div class="display-label">Data Limite para avaliação</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.DataLimite)
     </div>
+
+    <div class="display-label">Satisfação total</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Satisfacao)</div>
+
+    @if (Model.Satisfacao < 1)
+    {
+        <div class="display-label">Ação Corretiva</div>
+        <div class="display-field">@Html.DisplayFor(model => model.Acao)</div>
+    }
+
 </fieldset>
+@if (Model.ItensAvaliacao.Count > 0)
+{
+    <table>
+        <thread>
+            <tr>
+                <th>Item</th>
+                <th>Prazo</th>
+                <th>Nitidez</th>
+                <th>Paginação</th>
+                <th>Quantidade</th>
+                <th>Matriz</th>
+                <th>Acabamento</th>
+                <th>Satisfação</th>
+            </tr>
+        </thread>
+        @foreach (var item in Model.ItensAvaliacao)
+        {
+            <tr>
+                <td class="item">@Html.DisplayFor(model => item.Item.Descricao)</td>
+                <td class="prazo">@Html.DisplayFor(model => item.Prazo)</td>
+                <td class="nitidez">@Html.DisplayFor(model => item.Nitidez)</td>
+                <td class="paginacao">@Html.DisplayFor(model => item.Paginacao)</td>
+                <td class="quantidade">@Html.DisplayFor(model => item.Quantidade)</td>
+                <td class="matriz">@Html.DisplayFor(model => item.Matriz)</td>
+                <td class="acabamento">@Html.DisplayFor(model => item.Acabamento)</td>
+                <td class="satisfacao">@Html.DisplayFor(model => item.Satisfacao)</td>
+            </tr>
+        }
+    </table>
+}
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar ações", "ActionEdit", new { id = Model.Id })
 </p>

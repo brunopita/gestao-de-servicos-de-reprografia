@@ -11,7 +11,7 @@
 <h3>Relatórios</h3>
 <ul>
     <li>@Html.ActionLink("Listagem de solicitações", "SolicitacoesList")</li>
-    <li>@Html.ActionLink("Relatório de ações", "ActionReport")
+    <li>Relatório de ações
         <form class="inline" action="@Url.Action("ActionReport")" method="get">
             <select name="month">
               <option value="1" @(DateTime.Today.Month==1?"selected":"")>Janeiro</option>

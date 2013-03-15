@@ -40,7 +40,7 @@ namespace Reprografia
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<ReprografiaContext, Migrations.Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ReprografiaContext, Migrations.Configuration>());
             //#if DEBUG
             //Database.SetInitializer(new ReprografiaInitializer());
             //#endif

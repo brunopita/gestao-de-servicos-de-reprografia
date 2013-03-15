@@ -53,7 +53,7 @@ namespace Reprografia.Data.XL
                     values.Add("Quantidade" + i, item.Quantidade.ToXlString());
                     values.Add("Matriz" + i, item.Matriz.ToXlString());
                     values.Add("Acabamento" + i, item.Acabamento.ToXlString());
-                    values.Add("Total" + i, item.GetSatisfacao().ToString("0%"));
+                    values.Add("Total" + i, item.Satisfacao.ToString("0%"));
                     i++;
                 }
             }

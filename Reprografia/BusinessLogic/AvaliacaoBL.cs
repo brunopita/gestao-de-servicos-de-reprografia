@@ -58,6 +58,34 @@ namespace Reprografia.BusinessLogic
             return avaliacao;
         }
 
+        public static double GetSatisfacao(this ItemAvaliacao item)
+        {
+            return AvaliacaoBL.GetSatisfacao(new string[] {
+                item.Prazo, 
+                item.Nitidez,
+                item.Paginacao,
+                item.Quantidade,
+                item.Matriz,
+                item.Acabamento
+            });
+        }
+
+        public static double GetSatisfacao(string[] notas)
+        {
+            double aceitavel = 0.0, nAceitavel = 0.0;
+
+            foreach (var nota in notas)
+                if (nota != null)
+                    switch ((AvaliacaoNotaEnum)nota[0])
+                    {
+                        case AvaliacaoNotaEnum.A: aceitavel++; break;
+                        case AvaliacaoNotaEnum.NA: aceitavel++; break;
+                        case AvaliacaoNotaEnum.X: nAceitavel++; break;
+                        default: aceitavel++; break;
+                    }
+            return aceitavel / (aceitavel + nAceitavel);
+        }
+
         public static void EscreverXl(Models.Avaliacao avaliacao, string siteRoot, Stream destination)
         {
             var strategy = new AvaliacaoWriterStrategy(avaliacao);
@@ -80,5 +108,6 @@ namespace Reprografia.BusinessLogic
                 //return "NA";
             }
         }
+
     }
 }

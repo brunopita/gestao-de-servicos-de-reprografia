@@ -7,6 +7,7 @@ using Reprografia.Data;
 using Reprografia.Models.ViewModels;
 using Omu.ValueInjecter;
 using Reprografia.BusinessLogic;
+using Reprografia.Models;
 
 namespace Reprografia.Controllers
 {
@@ -52,7 +53,8 @@ namespace Reprografia.Controllers
                 .Include("User")
                 .Include("Avaliacao")
                 .Include("Avaliacao.ItensAvaliacao")
-                .Where(s => s.Ano == year && s.DataSolicitacao.Month == month);
+                .Where(s => s.Ano == year && s.DataSolicitacao.Month == month)
+                .Where(s => s.Avaliacao.Avaliado);
 
             if (solicitacoes.Count() == 0)
                 throw new HttpException(404, "Nenhuma solicitação encontrada para o mês selecionado");

@@ -58,12 +58,15 @@ namespace Reprografia.Models
 
         public virtual ICollection<ItemAvaliacao> ItensAvaliacao { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:0%}")]
         public double Satisfacao
         {
             get
             {
-                return this.ItensAvaliacao.AsEnumerable().Average(i => i.GetSatisfacao());
+                return this.ItensAvaliacao.AsEnumerable().Average(i => i.Satisfacao);
             }
         }
+
+        public string Acao { get; set; }
     }
 }

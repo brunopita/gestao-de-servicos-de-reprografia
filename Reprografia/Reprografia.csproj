@@ -188,6 +188,14 @@
     <Compile Include="Migrations\201301291136573_AddSolicitacaoComment.Designer.cs">
       <DependentUpon>201301291136573_AddSolicitacaoComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201302141747523_AddAcaoToAvaliacao.cs" />
+    <Compile Include="Migrations\201302141747523_AddAcaoToAvaliacao.Designer.cs">
+      <DependentUpon>201302141747523_AddAcaoToAvaliacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303151814119_RemoveSatisfacaoFromItemAvaliacao.cs" />
+    <Compile Include="Migrations\201303151814119_RemoveSatisfacaoFromItemAvaliacao.Designer.cs">
+      <DependentUpon>201303151814119_RemoveSatisfacaoFromItemAvaliacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Account\Role.cs" />
