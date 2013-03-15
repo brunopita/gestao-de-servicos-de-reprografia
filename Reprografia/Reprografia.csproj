@@ -161,6 +161,7 @@
     <Compile Include="BusinessLogic\BusinessLogicException.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\XL\AvaliacaoWriterStrategy.cs" />
     <Compile Include="Data\XL\SolicitacaoWriterStrategy.cs" />
     <Compile Include="Data\XL\XLWriter.cs" />
@@ -301,6 +302,11 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Errors\Index.cshtml" />
     <Content Include="Views\Errors\404.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
