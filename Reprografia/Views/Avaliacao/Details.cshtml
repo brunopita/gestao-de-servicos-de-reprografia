@@ -25,12 +25,6 @@
     <div class="display-label">Satisfação total</div>
     <div class="display-field">@Html.DisplayFor(model => model.Satisfacao)</div>
 
-    @if (Model.Satisfacao < 1)
-    {
-        <div class="display-label">Ação Corretiva</div>
-        <div class="display-field">@Html.DisplayFor(model => model.Acao)</div>
-    }
-
 </fieldset>
 @if (Model.ItensAvaliacao.Count > 0)
 {
@@ -63,7 +57,8 @@
     </table>
 }
 
-
+@if (Model.Satisfacao < 1)
+    {
 @using (Html.BeginForm("ActionEdit", "Avaliacao"))
 {
     @Html.HiddenFor(model => model.Id)
@@ -78,3 +73,4 @@
         <input type="submit" value="Alterar Ação Corretiva" />
     </p>
 }
+    }
