@@ -35,7 +35,7 @@ namespace Reprografia.Controllers
                 .Include("Solicitacao")
                 .First(a => a.Id == id);
 
-            if (avaliacao.Avaliado)
+            if (avaliacao.Avaliado && !User.IsInRole("Administrator"))
             {
                 return RedirectToAction("Index", "Solicitacao");
             }
