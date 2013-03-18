@@ -260,6 +260,7 @@
     <None Include="Properties\PublishProfiles\FTPsuico.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="scratch.txt" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\datepicker.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
