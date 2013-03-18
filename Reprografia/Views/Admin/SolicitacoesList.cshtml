@@ -1,58 +1,101 @@
 ﻿@model IEnumerable<Reprografia.Models.ViewModels.SolicitacaoIndexModel>
 @using Reprografia.BusinessLogic;
 @{
-    ViewBag.Title = "Index";
+ViewBag.Title = "Index";
 }
 <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/admin.css")" />
-<div id="header">
-    <h2>Solicitações</h2>
-    @if (ViewBag.PodeCriarSolicitacao == StatusCriacaoSolicitacao.Permitido)
-    {
+<script src="@Url.Content("~/Scripts/angular.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Utils.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/json3.min.js")" type="text/javascript"></script>
+<script>
+var solicitacoes = @{Html.RenderAction("SolicitacoesList", "Admin", new { json = true });};
+@{Response.ContentType = "text/html";}
+_.forEach(solicitacoes, function (s) {
+    s.DataSolicitacao = Utils.dotNetDate(s.DataSolicitacao);
+    s.DataLimite = Utils.dotNetDate(s.DataLimite);
+})
+
+window.solicitacoes = solicitacoes;
+</script>
+
+<script src="@Url.Content("~/Scripts/searchModule.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/SearchCtrl.js")" type="text/javascript"></script>
+
+<div class="ng-app:search" ng-app="search" ng-controller="SearchCtrl">
+    <div id="header">
+        <h2>Solicitações</h2>
+        @if (ViewBag.PodeCriarSolicitacao == StatusCriacaoSolicitacao.Permitido)
+        {
         <p>
             @Html.ActionLink("Nova", "Create")
         </p>
     }
     @if (TempData["ErrorMessage"] != null)
     {
-        <p class="error">
-            @TempData["ErrorMessage"]
-        </p>
-    }
+    <p class="error">
+        @TempData["ErrorMessage"]
+    </p>
+}
 @*Busca*@
-    <input type="text" id="search" />
+<input type="text" id="search" ng-model="filter.$" />
 </div>
 <table>
     <thead>
         <tr>
-            @{Html.RenderPartial("RowHeaderPartial");}
+            <th ng-click="predicate='AnoSeq';">
+                Num
+            </th>
+            <th ng-click="predicate='Formato';">
+                Formato
+            </th>
+            <th ng-click="predicate='DataSolicitacao';">
+                Data de Solicitação
+            </th>
+            <th ng-click="predicate='Suporte';">
+                Suporte
+            </th>
+            <th ng-click="predicate='UserFullName';">
+                Usuário
+            </th>
+            <th ng-click="predicate='DataLimite';">
+                Data Limite para Avaliação
+            </th>
+            <th ng-click="predicate='Avaliado';">
+                Avaliado
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                @{Html.RenderPartial("RowDisplayPartial", item);}
-                <td>
-                    @Html.ActionLink("Detalhes", "Details", "Solicitacao", new { id = item.Id }, new { })
-                    <span class="divider">| </span>
-                    @if (item.Cancelavel)
-                    {
-                        @Html.ActionLink("Indeferir", "Delete", new { id = item.Id })
-                        <span class="divider">| </span>
-                    }
-                    @Html.ActionLink("Solicitação", "Xl", new { id = item.Id })
-                    @if (item.Avaliado)
-                    {
-                        <span class="divider">| </span>
-                        @Html.ActionLink("Avaliação", "Xl", "Avaliacao", new { id = item.Id }, null)
-                    }
-                </td>
-            </tr>
-        }
+        <tr ng-repeat="item in solicitacoes | filter:filter | orderBy:predicate">
+            <td>
+                {{item.AnoSeq}}
+            </td>
+            <td>
+                {{item.Formato}}
+            </td>
+            <td>
+                {{item.DataSolicitacao | date:"dd/MM/yyyy"}}
+            </td>
+            <td>
+                {{item.Suporte}}
+            </td>
+            <td>{{item.UserFullName}} ({{item.UserName}})
+            </td>
+            <td>
+                {{item.DataLimite | date:"dd/MM/yyyy"}}
+            </td>
+            <td>
+                {{item.Avaliado | bool }}
+            </td>
+            <td>
+                <a href="/Solicitacao/Details/{{item.Id}}">Detalhes</a>
+                <span class="divider">| </span>
+                <a href="/Admin/Xl/{{item.Id}}">Solicitação</a>
+                <span class="divider">| </span>
+                <a href="/Avaliacao/Xl/{{item.Id}}">Avaliação</a>
+            </td>
+        </tr>
     </tbody>
 </table>
-<script src="@Url.Content("~/Scripts/jquery.quicksearch.js")" type="text/javascript"></script>
-<script type="text/javascript">
-    $("input#search").quicksearch("table tbody tr")
-</script>
+</div>

@@ -22,7 +22,7 @@ namespace Reprografia.Controllers
         }
 
         [HttpGet, Authorize(Roles = "Administrator")]
-        public ActionResult SolicitacoesList()
+        public ActionResult SolicitacoesList(Boolean json = false)
         {
             var solicitacoes = db.Solicitacoes
                 .Include("Avaliacao")
@@ -38,7 +38,14 @@ namespace Reprografia.Controllers
                 modelItem.Cancelavel = s.IsCancelavel();
                 model.Add(modelItem);
             }
-            return View(model);
+            if (!json)
+            {
+                return View(model);
+            }
+            else
+            {
+                return Json(model, JsonRequestBehavior.AllowGet);
+            }
         }
 
         [HttpGet, Authorize(Roles = "Administrator")]
