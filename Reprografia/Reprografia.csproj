@@ -273,9 +273,14 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\json3.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\mustache.js" />
+    <Content Include="Scripts\SearchCtrl.js" />
+    <Content Include="Scripts\searchModule.js" />
+    <Content Include="Scripts\underscore-min.js" />
+    <Content Include="Scripts\Utils.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
