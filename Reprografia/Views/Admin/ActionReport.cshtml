@@ -34,7 +34,14 @@
                 @Html.DisplayFor(modelItem => item.DataSolicitacao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Acao)
+                @if (item.Acao == "" && item.Satisfacao < 1)
+                {
+                    @Html.ActionLink("Informar Ação corretiva", "Details", "Avaliacao", new { id = item.Id }, new { })
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.Acao)                    
+                }
             </td>
         </tr>
     }
