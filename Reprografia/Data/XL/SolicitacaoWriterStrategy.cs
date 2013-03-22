@@ -44,6 +44,18 @@ namespace Reprografia.Data.XL
             values.Add("Fornecedor", solicitacao.Fornecedor.Nome);
             values.Add("Comentario", solicitacao.Comment);
 
+            //Escrever Curso e Suporte em seus respectivos Nomes
+            values.Add(solicitacao.Suporte, "X");
+
+            // Por enquanto limitar somente a áreas suportadas pela planilha
+            if (new String[] { "CAI", "CT", "FC", "CST" }.Contains(solicitacao.Area.Nome))
+            {
+                values.Add(solicitacao.Area.Nome, "X");
+            }
+
+
+            values.Add(solicitacao.Formato, "X");
+
             int i = 1;
             foreach (Reprografia.Models.Item item in solicitacao.Itens)
             {
@@ -68,6 +80,7 @@ namespace Reprografia.Data.XL
                 values.Add("CortarAoMeio" + i, item.CortarAoMeio ? "X" : "");
                 i++;
             }
+
         }
 
         public override Dictionary<string, string> Values
