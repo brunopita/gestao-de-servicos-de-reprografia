@@ -1,10 +1,11 @@
 ﻿using Reprografia.Models.ViewModels;
+using Reprografia.Models.Account;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using Reprografia.Models;
 
-namespace ReprografiaTest
+namespace ReprografiaTest.Models.ViewModels
 {
 
 
@@ -15,9 +16,7 @@ namespace ReprografiaTest
     [TestClass()]
     public class SolicitacaoIndexModelTest
     {
-
-
-        private static Solicitacao sol1;
+        private static Solicitacao solicitacao;
         private TestContext testContextInstance;
 
         /// <summary>
@@ -36,50 +35,11 @@ namespace ReprografiaTest
             }
         }
 
-        #region Additional test attributes
-        // 
-        //You can use the following additional attributes as you write your tests:
-        //
-        //Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
-        public static void MyClassInitialize(TestContext testContext)
+        [TestInitialize()]
+        public static void Initialize(TestContext testContext)
         {
-            sol1 = new Solicitacao();
-            //sol1.User = paolo;
-            sol1.Formato = "A4";
-            sol1.Suporte = "E-mail";
-            //sol1.Fornecedor = forn1;
-            //sol1.Codificacao = codificacoes[0];
-            //sol1.Area = areas[0];
-            sol1.Seq = 1;
-            sol1.Ano = DateTime.Now.Year;
-            sol1.Itens = new[] 
-                { 
-                    new Item { Descricao = "Apostila de NR 10 GMT", Espiral = true, CapaEmPVC = true, FrenteVerso = true , Copias= 5, Paginas = 5}, 
-                    new Item { Descricao = "Avaliação NR 10 GMT", FrenteVerso = true, Copias= 5, Paginas = 5}, 
-                    new Item { Descricao = "Exercícios GMT", FrenteVerso = true, Copias= 5, Paginas = 5} 
-                };
+            solicitacao = Models.SolicitacaoSeed.solicitacao;
         }
-        //
-        //Use ClassCleanup to run code after all tests in a class have run
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
 
 
         /// <summary>
@@ -94,8 +54,10 @@ namespace ReprografiaTest
         [UrlToTest("http://localhost:1576/")]
         public void SolicitacaoIndexModelConstructorTest()
         {
-            Solicitacao solicitacao = null; // TODO: Initialize to an appropriate value
             SolicitacaoIndexModel target = new SolicitacaoIndexModel(solicitacao);
+            Assert.AreEqual(solicitacao.Ano, target.Ano);
+            Assert.AreEqual(solicitacao.AnoSeq, target.AnoSeq);
+            Assert.AreEqual(solicitacao.Area, target.UserName);
             Assert.Inconclusive("TODO: Implement code to verify target");
         }
 
@@ -112,12 +74,9 @@ namespace ReprografiaTest
         public void InsertFromTest()
         {
             SolicitacaoIndexModel target = new SolicitacaoIndexModel(); // TODO: Initialize to an appropriate value
-            Solicitacao solicitacao = null;
             target.InsertFrom(solicitacao);
+            Assert.AreEqual(solicitacao.User.FullName, target.UserFullName);
             Assert.AreEqual(target.Ano, solicitacao.Ano);
-
-
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
         }
     }
 }
