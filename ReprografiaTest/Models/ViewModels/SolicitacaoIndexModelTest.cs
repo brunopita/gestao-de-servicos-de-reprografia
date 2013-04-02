@@ -36,9 +36,9 @@ namespace ReprografiaTest.Models.ViewModels
         }
 
         [TestInitialize()]
-        public static void Initialize(TestContext testContext)
+        public void Initialize()
         {
-            solicitacao = Models.SolicitacaoSeed.solicitacao;
+            solicitacao = Models.SolicitacaoSeed.ApostilasNR10;
         }
 
 
@@ -49,16 +49,12 @@ namespace ReprografiaTest.Models.ViewModels
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Paolo\\documents\\visual studio 2010\\Projects\\Reprografia\\Reprografia", "/")]
-        [UrlToTest("http://localhost:1576/")]
         public void SolicitacaoIndexModelConstructorTest()
         {
             SolicitacaoIndexModel target = new SolicitacaoIndexModel(solicitacao);
             Assert.AreEqual(solicitacao.Ano, target.Ano);
             Assert.AreEqual(solicitacao.AnoSeq, target.AnoSeq);
-            Assert.AreEqual(solicitacao.Area, target.UserName);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.AreEqual(solicitacao.UserName, target.UserName);
         }
 
         /// <summary>
@@ -68,12 +64,9 @@ namespace ReprografiaTest.Models.ViewModels
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Paolo\\documents\\visual studio 2010\\Projects\\Reprografia\\Reprografia", "/")]
-        [UrlToTest("http://localhost:1576/")]
         public void InsertFromTest()
         {
-            SolicitacaoIndexModel target = new SolicitacaoIndexModel(); // TODO: Initialize to an appropriate value
+            SolicitacaoIndexModel target = new SolicitacaoIndexModel();
             target.InsertFrom(solicitacao);
             Assert.AreEqual(solicitacao.User.FullName, target.UserFullName);
             Assert.AreEqual(target.Ano, solicitacao.Ano);
