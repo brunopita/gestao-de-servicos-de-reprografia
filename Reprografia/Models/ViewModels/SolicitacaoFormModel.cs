@@ -6,10 +6,9 @@ using System.Web.Mvc;
 
 namespace Reprografia.Models.ViewModels
 {
-    public class SolicitacaoCreateModel
+    public class SolicitacaoFormModel
     {
-
-        public SolicitacaoCreateModel()
+        public SolicitacaoFormModel()
         {
             this.Formatos = new SelectList(new[] { "A4", "A3", "A5" });
             this.Suportes = new SelectList(new[] { "E-Mail", "Zipdrive", "Papel", "CD" }, "Papel");

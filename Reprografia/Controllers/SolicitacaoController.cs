@@ -66,12 +66,12 @@ namespace Reprografia.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var model = new SolicitacaoCreateModel();
+            var model = new SolicitacaoFormModel();
             Fill(model);
             return View(model);
         }
 
-        private void Fill(SolicitacaoCreateModel model)
+        private void Fill(SolicitacaoFormModel model)
         {
             model.Areas = new SelectList(db.Areas, "Id", "Nome", 1);
 
@@ -96,7 +96,7 @@ namespace Reprografia.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(SolicitacaoCreateModel data)
+        public ActionResult Create(SolicitacaoFormModel data)
         {
             StatusCriacaoSolicitacao statusUsuario = SolicitacaoBL.PodeCriarSolicitacao(User.Identity.Name);
             if (!ModelState.IsValid ||
