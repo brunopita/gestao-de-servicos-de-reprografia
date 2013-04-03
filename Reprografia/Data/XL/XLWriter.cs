@@ -19,7 +19,6 @@ namespace Reprografia.Data.XL
             this.ModelPath = Path.Combine(xlRootPath, writer.ModelFilename);
 
             //Abrir arquivo para edicao como objeto NPOI
-            //TODO: verificar se NPOI nao altera arquivo lido
             this.Book = new HSSFWorkbook(new FileStream(this.ModelPath, FileMode.Open, FileAccess.Read));
         }
 
