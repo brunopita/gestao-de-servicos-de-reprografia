@@ -6,7 +6,6 @@ using System.ComponentModel;
 
 namespace Reprografia.Models
 {
-    [TypeConverter(typeof(AvaliacaoNotaEnumConverter))]
     public enum AvaliacaoNotaEnum
     {
         A = 'A',

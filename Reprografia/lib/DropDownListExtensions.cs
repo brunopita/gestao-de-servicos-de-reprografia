@@ -19,9 +19,9 @@ namespace Reprografia.lib
             Type enumType = GetNonNullableModelType(metadata);
             IEnumerable<SelectListItem> items = new[]
             {
-                new SelectListItem(){Text = "Aceitável", Value = "A", Selected = "A".Equals(metadata.Model)},
-                new SelectListItem(){Text = "Não Aceitável", Value = "N", Selected = "N".Equals(metadata.Model)},
-                new SelectListItem(){Text = "Não Aplicável", Value = "X", Selected = "X".Equals(metadata.Model)}
+                new SelectListItem(){Text = "A - Aceitável", Value = "A", Selected = "A".Equals(metadata.Model)},
+                new SelectListItem(){Text = "X - Não Aceitável", Value = "X", Selected = "X".Equals(metadata.Model)},
+                new SelectListItem(){Text = "NA - Não Aplicável", Value = "A", Selected = "A".Equals(metadata.Model)}
             };
 
             if (metadata.IsNullableValueType)
