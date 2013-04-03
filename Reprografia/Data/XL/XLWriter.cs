@@ -45,7 +45,7 @@ namespace Reprografia.Data.XL
 
         private NPOI.SS.UserModel.ICell GetCell(string rangeName)
         {
-            var range = Book.GetNameAt(Book.GetNameIndex(rangeName));
+            var range = Book.GetNameAt(Book.GetNameIndex(ExcelNameEscape(rangeName)));
             var areaRef = new AreaReference(range.RefersToFormula);
 
             CellReference[] crefs = areaRef.GetAllReferencedCells();
@@ -54,6 +54,11 @@ namespace Reprografia.Data.XL
             return Book.GetSheet(cref.SheetName)
                 .GetRow(cref.Row)
                 .GetCell(cref.Col);
+        }
+
+        private string ExcelNameEscape(string name)
+        {
+            return name.Replace("-", "");
         }
 
         public string ModelPath { get; private set; }

@@ -13,7 +13,7 @@ namespace ReprografiaTest.Data.XL
         public void AreasFillTest()
         {
             var s = Models.SolicitacaoSeed.ApostilasNR10;
-            var areas = new String[] { "CAI", "CT", "FC", "CST" };
+            var areas = new String[] { "CAI", "CT", "FC", "CST", "Pos" };
 
             foreach (string area in areas)
             {
