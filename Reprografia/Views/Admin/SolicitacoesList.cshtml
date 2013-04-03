@@ -6,7 +6,6 @@ ViewBag.Title = "Index";
 <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/admin.css")" />
 <script src="@Url.Content("~/Scripts/angular.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/Utils.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/json3.min.js")" type="text/javascript"></script>
 <script>
 var solicitacoes = @{Html.RenderAction("SolicitacoesList", "Admin", new { json = true });};
 @{Response.ContentType = "text/html";}
@@ -21,7 +20,7 @@ window.solicitacoes = solicitacoes;
 <script src="@Url.Content("~/Scripts/searchModule.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/SearchCtrl.js")" type="text/javascript"></script>
 
-<div class="ng-app:search" ng-app="search" ng-controller="SearchCtrl">
+<div id="ng-app" class="ng-app:search" ng-app="search" ng-controller="SearchCtrl">
     <div id="header">
         <h2>Solicitações</h2>
         @if (ViewBag.PodeCriarSolicitacao == StatusCriacaoSolicitacao.Permitido)
@@ -91,7 +90,7 @@ window.solicitacoes = solicitacoes;
             <td>
                 <a href="/Solicitacao/Details/{{item.Id}}">Detalhes</a>
                 <span class="divider">| </span>
-                <a href="/Admin/Xl/{{item.Id}}">Solicitação</a>
+                <a href="/Solicitacao/Xl/{{item.Id}}">Solicitação</a>
                 <span class="divider">| </span>
                 <a href="/Avaliacao/Xl/{{item.Id}}">Avaliação</a>
             </td>

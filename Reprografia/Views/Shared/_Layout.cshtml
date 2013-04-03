@@ -1,47 +1,60 @@
 ﻿@using Reprografia.BusinessLogic
 @using Reprografia.lib
 <!DOCTYPE html>
-<html>
+<html xmlns:ng="http://angularjs.org">
 <head>
-    <title>Solicitação de Serviços Reprográficos | @ViewBag.Title</title>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/underscore-min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
-</head>
-<body>
+    <!--[if lte IE 8]>
+      <script>
+        document.createElement('ng-include');
+        document.createElement('ng-pluralize');
+        document.createElement('ng-view');
+ 
+        // Optionally these for CSS
+        document.createElement('ng:include');
+        document.createElement('ng:pluralize');
+        document.createElement('ng:view');
+      </script>
+      <![endif]-->
+      <title>Solicitação de Serviços Reprográficos | @ViewBag.Title</title>
+      <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
+      <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+      <script src="@Url.Content("~/Scripts/json3.min.js")" type="text/javascript"></script>
+      <script src="@Url.Content("~/Scripts/underscore-min.js")" type="text/javascript"></script>
+      <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>
+  </head>
+  <body>
     <div class="page">
         <div id="header">
             <div id="title">
                 <h1>
                     Sistema de Solicitação de Serviços Reprográficos</h1>
-            </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <div id="menucontainer">
-                <ul id="menu">
-                    <li>@Html.MenuLink("Início", "Index", "Solicitacao")</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
+                </div>
+                <div id="logindisplay">
+                    @Html.Partial("_LogOnPartial")
+                </div>
+                <div id="menucontainer">
+                    <ul id="menu">
+                        <li>@Html.MenuLink("Início", "Index", "Solicitacao")</li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
                         <li>@Html.ActionLink("Trocar senha", "ChangePassword", "Account")</li>
                         if (SolicitacaoBL.PodeCriarSolicitacao(User.Identity.Name) == StatusCriacaoSolicitacao.Permitido)
                         {
                         <li>@Html.MenuLink("Nova Solicitação", "Create", "Solicitacao")</li>
-                        }
-                        if (User.IsInRole("Administrator"))
-                        {
-                        <li>@Html.MenuLink("Administração", "Index", "Admin")</li>
-                        }
                     }
-                </ul>
-            </div>
-        </div>
-        <div id="main">
-            @RenderBody()
-        </div>
-        <div id="footer">
-        </div>
+                    if (User.IsInRole("Administrator"))
+                    {
+                    <li>@Html.MenuLink("Administração", "Index", "Admin")</li>
+                }
+            }
+        </ul>
     </div>
+</div>
+<div id="main">
+    @RenderBody()
+</div>
+<div id="footer">
+</div>
+</div>
 </body>
 </html>
