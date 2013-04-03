@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using Reprografia.Models;
+using Reprografia.BusinessLogic;
 
 namespace ReprografiaTest.Models.ViewModels
 {
@@ -70,6 +71,7 @@ namespace ReprografiaTest.Models.ViewModels
             target.InsertFrom(solicitacao);
             Assert.AreEqual(solicitacao.User.FullName, target.UserFullName);
             Assert.AreEqual(target.Ano, solicitacao.Ano);
+            Assert.AreEqual(target.Cancelavel, solicitacao.IsCancelavel());
         }
     }
 }

@@ -90,7 +90,7 @@ namespace Reprografia.BusinessLogic
             
         }
 
-        internal static IQueryable<Reprografia.Models.Solicitacao> GetByCancelavel(bool cancelavel)
+        public static IQueryable<Reprografia.Models.Solicitacao> GetByCancelavel(bool cancelavel)
         {
             if (cancelavel)
                 return db.Solicitacoes.Include("Avaliacao")
@@ -99,7 +99,7 @@ namespace Reprografia.BusinessLogic
                 .Where(s => s.DataEntrega < DateTime.Now.Date || s.Avaliacao.Avaliado);
         }
 
-        internal static bool IsCancelavel(this Reprografia.Models.Solicitacao solicitacao)
+        public static bool IsCancelavel(this Reprografia.Models.Solicitacao solicitacao)
         {
             return !solicitacao.Avaliacao.Avaliado;
         }

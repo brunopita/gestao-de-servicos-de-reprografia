@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using Reprografia.BusinessLogic;
 
 namespace Reprografia.Models.ViewModels
 {
@@ -30,6 +31,7 @@ namespace Reprografia.Models.ViewModels
             this.Suporte = solicitacao.Suporte;
             this.DataLimite = solicitacao.Avaliacao.DataLimite;
             this.Avaliado = solicitacao.Avaliacao.Avaliado;
+            this.Cancelavel = solicitacao.IsCancelavel();
         }
 
         public int Id { get; set; }
