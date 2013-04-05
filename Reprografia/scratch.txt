@@ -1,3 +1,0 @@
-﻿Implementar diferentes status para Solicitações
-Geração de planilha para avaliação
-Postergar Envio de email para 1.1
