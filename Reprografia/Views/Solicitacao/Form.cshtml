@@ -1,9 +1,9 @@
 ﻿@model Reprografia.Models.ViewModels.SolicitacaoFormModel
 
 <script>
-    window.Fornecedores = @Json.Encode(Model.Fornecedores);
-    window.Areas = @Json.Encode(Model.Areas);
-    window.Codificacoes = @Json.Encode(Model.Codificacoes);
+    window.Fornecedores = @Html.Raw(Json.Encode(Model.Fornecedores));
+    window.Areas = @Html.Raw(Json.Encode(Model.Areas));
+    window.Codificacoes = @Html.Raw(Json.Encode(Model.Codificacoes));
 </script>
 @using (Html.BeginForm())
 {
@@ -15,7 +15,7 @@
                 @Html.LabelFor(model => model.Solicitacao.Formato)
             </div>
             <div class="editor-field">
-                <select name="Solicitacao.Formato" id="formato" ngOptions="f for f in Formatos" ></select>
+                <select name="Solicitacao.Formato" ng-model="Solicitacao.Formato" id="Solicitacao_Formato" ng-options="i for i in Formatos" ></select>
             </div>
         </div>
         <div class="field" id="field-area">
@@ -23,7 +23,7 @@
                 @Html.LabelFor(model => model.Solicitacao.Area)
             </div>
             <div class="editor-field">
-                <select name="Solicitacao.Area" id="area"></select>
+                <select name="Solicitacao.Area" ng-model="Solicitacao.Area" ng-options="i.Value as i.Text for i in Areas" id="Solicitacao_Area"></select>
             </div>
         </div>
         <div class="field" id="field-fornecedor">
@@ -31,8 +31,7 @@
                 @Html.LabelFor(model => model.Solicitacao.Fornecedor)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.Solicitacao.FornecedorId,
-                        Model.Fornecedores)
+                <select name="Solicitacao.Fornecedor" ng-model="Solicitacao.Fornecedor" ng-options="i.Value as i.Text for i in Fornecedores" id="Solicitacao_Fornecedor"></select>
             </div>
         </div>
         <div class="field" id="field-data-entrega">
@@ -40,8 +39,7 @@
                 @Html.LabelFor(model => model.Solicitacao.DataEntrega)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Solicitacao.DataEntrega)
-                @Html.ValidationMessageFor(model => model.Solicitacao.DataEntrega)
+                <input type="date" ng-model="Solicitacao.DataEntrega" name="Solicitacao.DataEntrega" id="Solicitacao_DataEntrega" class="datepick">
             </div>
         </div>
         <div class="field" id="field-codificacao">
