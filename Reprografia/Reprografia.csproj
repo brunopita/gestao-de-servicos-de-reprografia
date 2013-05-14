@@ -202,7 +202,6 @@
     <Compile Include="Models\AvaliacaoNotaEnum.cs" />
     <Compile Include="Models\EmailCobrancaAvaliacao.cs" />
     <Compile Include="Models\ItemAvaliacao.cs" />
-    <Compile Include="Data\ReprografiaInitializer.cs" />
     <Compile Include="Models\Fornecedor.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Data\ReprografiaContext.cs" />
