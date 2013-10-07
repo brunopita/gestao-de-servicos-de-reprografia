@@ -19,5 +19,6 @@ namespace Reprografia.Models
         public int ContaMemo { get; set; }
         [Display(Name = "Conta Memo - Descrição")]
         public string DescricaoContaMemo { get; set; }
+        public bool Ativo { get; set; }
     }
 }
