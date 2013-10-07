@@ -1,11 +1,11 @@
-﻿@model Reprografia.Models.ViewModels.SolicitacaoFormModel
+﻿@model Reprografia.Models.ViewModels.SolicitacaoCreateModel
 @using Reprografia.lib
 @{
     ViewBag.Title = "Criar";
 }
 <h2>Nova Solicitacao: @Model.Solicitacao.AnoSeq</h2>
 <link href="@Url.Content("~/Content/ItemEditor.css")" type="text/css" rel="stylesheet" />
-<link href="@Url.Content("~/Content/Solicitacao/Form.css")" type="text/css" rel="stylesheet" />
+<link href="@Url.Content("~/Content/Solicitacao/Create.css")" type="text/css" rel="stylesheet" />
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
@@ -16,5 +16,120 @@
         @ViewBag.error
     </p>
 }
-
-@{Html.RenderPartial("Form");}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="main">
+        <legend>Campos de cadastro</legend>
+        <div class="field" id="field-formato">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Formato)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.Formato, Model.Formatos)
+                @Html.ValidationMessageFor(model => model.Solicitacao.Formato)
+            </div>
+        </div>
+        <div class="field" id="field-area">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Area)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.AreaId,
+                        Model.Areas)
+                @Html.ValidationMessageFor(model => model.Solicitacao.AreaId)
+            </div>
+        </div>
+        <div class="field" id="field-fornecedor">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Fornecedor)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.FornecedorId,
+                        Model.Fornecedores)
+                @Html.ValidationMessageFor(model => model.Solicitacao.FornecedorId)
+            </div>
+        </div>
+        <div class="field" id="field-data-entrega">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.DataEntrega)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Solicitacao.DataEntrega)
+                @Html.ValidationMessageFor(model => model.Solicitacao.DataEntrega)
+            </div>
+        </div>
+        <div class="field" id="field-codificacao">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Codificacao)
+            </div>
+            <div class="editor-field">
+                <select name="Solicitacao.CodificacaoId" id="Solicitacao_CodificacaoId">
+                    @foreach (var item in Model.Codificacoes)
+                    {
+                        <option value="@item.Value" @(item.Selected ? @"selected='selected'" : "") >@item.Text</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="field" id="field-suporte">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Suporte)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Solicitacao.Suporte, Model.Suportes)
+                @Html.ValidationMessageFor(model => model.Solicitacao.Suporte)
+            </div>
+        </div>
+        <div class="field" id="field-comment">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Solicitacao.Comment)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Solicitacao.Comment, new { style= "width: 40em;" })
+                @Html.ValidationMessageFor(model => model.Solicitacao.Comment)
+            </div>
+        </div>
+    </fieldset>
+@*Lista de Items*@
+    <div id="itemContainer">
+        @{
+    //ViewDataDictionary viewData = new ViewDataDictionary();
+    //viewData.Add(new KeyValuePair<string, object>("template", false));
+    Html.RenderPartial("ItemEditorLine", new Reprografia.Models.Item());
+        }
+    </div>
+    <input type="button" onclick="viewModel.addNew(); return false;" value="Adicionar Item" />
+    <input type="submit" value="Criar Solicitação" />
+}
+<div>
+    @Html.ActionLink("Voltar para a Listagem", "Index")
+</div>
+<script src="@Url.Content("~/Scripts/mustache.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var viewModel = {
+        addNew: function () {
+            if (viewModel.items <= viewModel.maxItems) {
+                viewModel.items++;
+                @*HACK: ASP.NET substitui "{" e "}" na string por "_"*@
+                $("#itemContainer").append(
+                    Mustache.render($("#itemTemplate").html()
+                        .replace(/__index__/g, "{{index}}")
+                        , { index: viewModel._generateGuid() })
+                );
+            }
+        },
+        items: 1,
+        maxItems: 10,
+        _generateGuid: function () {
+            // Source: http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/105074#105074
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+    };
+</script>
+<script id="itemTemplate" type="text/x-mustache-template">
+    @{Html.RenderPartial("ItemEditorLine", new Reprografia.Models.Item() { Id = 1 });}
+</script>
