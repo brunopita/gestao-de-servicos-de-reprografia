@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201303151814119_RemoveSatisfacaoFromItemAvaliacao.Designer.cs">
       <DependentUpon>201303151814119_RemoveSatisfacaoFromItemAvaliacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201310071336307_AddAtivoToCodificacao.cs" />
+    <Compile Include="Migrations\201310071336307_AddAtivoToCodificacao.Designer.cs">
+      <DependentUpon>201310071336307_AddAtivoToCodificacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Account\Role.cs" />

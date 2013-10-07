@@ -75,7 +75,7 @@ namespace Reprografia.Controllers
         {
             model.Areas = new SelectList(db.Areas, "Id", "Nome", 1);
 
-            var itemsCodificacoes = db.Codificacoes
+            var itemsCodificacoes = db.CodificacoesAtivas
                 .OrderBy(c => c.CentroDeCusto)
                 .ThenBy(c => c.ContaMemo)
                 .AsEnumerable()
@@ -147,7 +147,7 @@ namespace Reprografia.Controllers
             return RedirectToAction("Details", new { id = data.Solicitacao.Id });
         }
 
-        
+
 
         [HttpGet, Authorize(Roles = "Administrator")]
         public ActionResult Delete(int id)

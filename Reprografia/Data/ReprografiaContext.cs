@@ -28,6 +28,14 @@ namespace Reprografia.Data
 
         public DbSet<Codificacao> Codificacoes { get; set; }
 
+        public IQueryable<Codificacao> CodificacoesAtivas
+        {
+            get
+            {
+                return this.Codificacoes.Where(c => c.Ativo);
+            }
+        }
+
         public DbSet<EmailCobrancaAvaliacao> Emails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -48,7 +56,7 @@ namespace Reprografia.Data
                 .WithRequired(i => i.Item)
                 .WillCascadeOnDelete(false);
 
-                
+
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
