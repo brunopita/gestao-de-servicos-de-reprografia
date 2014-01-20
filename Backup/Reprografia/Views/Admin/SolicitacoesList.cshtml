@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Reprografia.Models.ViewModels.SolicitacaoIndexModel>
+@using Reprografia.BusinessLogic;
+@{
+    ViewBag.Title = "Index";
+}
+<link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/admin.css")" />
+<script src="@Url.Content("~/Scripts/angular.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Utils.js")" type="text/javascript"></script>
+<script>
+    var solicitacoes = @{Html.RenderAction("SolicitacoesList", "Admin", new { json = true });};
+@{Response.ContentType = "text/html";}
+    _.forEach(solicitacoes, function (s) {
+        s.DataSolicitacao = Utils.dotNetDate(s.DataSolicitacao);
+        s.DataLimite = Utils.dotNetDate(s.DataLimite);
+    })
+
+    window.solicitacoes = solicitacoes;
+</script>
+
+<script src="@Url.Content("~/Scripts/searchModule.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/SearchCtrl.js")" type="text/javascript"></script>
+
+<div id="ng-app" class="ng-app:search" ng-app="search" ng-controller="SearchCtrl">
+    <div id="header">
+        <h2>Solicitações</h2>
+        @if (ViewBag.PodeCriarSolicitacao == StatusCriacaoSolicitacao.Permitido)
+        {
+            <p>
+                @Html.ActionLink("Nova", "Create")
+            </p>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="error">
+                @TempData["ErrorMessage"]
+            </p>
+        }
+@*Busca*@
+        <input type="text" id="search" ng-model="filter.$" />
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th ng-click="predicate='AnoSeq';">Num
+                </th>
+                <th ng-click="predicate='Formato';">Formato
+                </th>
+                <th ng-click="predicate='DataSolicitacao';">Data de Solicitação
+                </th>
+                <th ng-click="predicate='Suporte';">Suporte
+                </th>
+                <th ng-click="predicate='UserFullName';">Usuário
+                </th>
+                <th ng-click="predicate='DataLimite';">Data Limite para Avaliação
+                </th>
+                <th ng-click="predicate='Avaliado';">Avaliado
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in solicitacoes | filter:filter | orderBy:predicate">
+                <td>{{item.AnoSeq}}
+                </td>
+                <td>{{item.Formato}}
+                </td>
+                <td>{{item.DataSolicitacao | date:"dd/MM/yyyy"}}
+                </td>
+                <td>{{item.Suporte}}
+                </td>
+                <td>{{item.UserFullName}} ({{item.UserName}})
+                </td>
+                <td>{{item.DataLimite | date:"dd/MM/yyyy"}}
+                </td>
+                <td>{{item.Avaliado | bool }}
+                </td>
+                <td>
+                    <span ng-show="item.Avaliado">
+                        <a href="@Url.Action("Details", "Solicitacao")/{{item.Id}}">Detalhes</a>
+                        <span class="divider">|&nbsp;</span>
+                        <a href="@Url.Action("Xl", "Solicitacao")/{{item.Id}}">Planilha</a>
+                        <span class="divider">|&nbsp;</span>
+                        <a href="@Url.Action("Xl", "Avaliacao")/{{item.Id}}">Avaliação</a>
+                    </span>
+
+                    <span ng-show="!item.Avaliado">
+                        <a href="@Url.Action("Delete", "Solicitacao")/{{item.Id}}">Indeferir</a>
+                        <span class="divider">|&nbsp;</span>
+                        <a href="@Url.Action("Xl", "Solicitacao")/{{item.Id}}">Planilha</a>
+
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

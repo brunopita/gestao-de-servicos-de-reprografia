@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Reprografia.Models.ViewModels.SolicitacaoIndexModel>
+@using Reprografia.BusinessLogic;
+@{
+    ViewBag.Title = "Início";
+}
+<h2>Suas Solicitações</h2>
+@if (TempData["ErrorMessage"] != null)
+{
+    <p class="error">
+        @TempData["ErrorMessage"]
+    </p>
+}
+<table>
+    <tr>
+        @{Html.RenderPartial("RowHeaderPartial");}
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        @Html.Partial("RowDisplayPartial", item)
+    }
+</table>

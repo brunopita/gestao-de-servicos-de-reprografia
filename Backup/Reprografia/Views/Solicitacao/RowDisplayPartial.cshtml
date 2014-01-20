@@ -1,0 +1,29 @@
+﻿@model Reprografia.Models.ViewModels.SolicitacaoIndexModel
+<tr class="@(Model.DataLimite < DateTime.Today ? "atrasada" : "")">
+    <td>
+        @Html.ActionLink(Model.AnoSeq, "Details", new {id = Model.Id})
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Formato)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.DataSolicitacao)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Suporte)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.DataLimite)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Avaliado)
+    </td>
+    <td>
+        @Html.ActionLink("Planilha", "Xl", new { id = Model.Id })
+        @if (!Model.Avaliado)
+        {
+            <span class="divider">| </span>
+            @Html.ActionLink("Avaliar", "Edit", "Avaliacao", new { id = Model.Id }, null)
+        }
+    </td>
+</tr>

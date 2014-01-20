@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>EPPlus</id>
+    <version>3.0.0.2</version>
+    <authors>Jan Källman</authors>
+    <owners>Jan Källman</owners>
+    <licenseUrl>http://epplus.codeplex.com/license</licenseUrl>
+    <projectUrl>http://epplus.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>A library to manage Excel spreadsheets, using OOXML.</description>
+    <releaseNotes>Changed license from GPL to LGPL and some Bugfixes.</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>Excel OOXML</tags>
+  </metadata>
+</package>

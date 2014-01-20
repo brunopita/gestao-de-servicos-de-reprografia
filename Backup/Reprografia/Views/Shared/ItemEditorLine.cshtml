@@ -1,0 +1,120 @@
+﻿@model Reprografia.Models.Item
+@using Reprografia.lib
+@using (Html.BeginCollectionItem("Itens", Model.Id == 1))
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="item-line">
+        <legend>Item</legend>
+        @Html.HiddenFor(model => model.Id)
+        <fieldset class="item-line-main">
+            <div class="item-field">
+                @Html.LabelFor(model => model.Descricao)
+                @Html.EditorFor(model => model.Descricao)
+                @Html.ValidationMessageFor(model => model.Descricao)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.Paginas)
+                @Html.EditorFor(model => model.Paginas)
+                @Html.ValidationMessageFor(model => model.Paginas)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.Copias)
+                @Html.EditorFor(model => model.Copias)
+                @Html.ValidationMessageFor(model => model.Copias)
+            </div>
+        </fieldset>
+
+        <fieldset id="grampos">
+            <legend>Grampos</legend>
+            <div class="item-field">
+                @Html.LabelFor(model => model.GramposACavalo)
+                @Html.EditorFor(model => model.GramposACavalo)
+                @Html.ValidationMessageFor(model => model.GramposACavalo)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.GramposLaterais)
+                @Html.EditorFor(model => model.GramposLaterais)
+                @Html.ValidationMessageFor(model => model.GramposLaterais)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.Grampear)
+                @Html.EditorFor(model => model.Grampear)
+                @Html.ValidationMessageFor(model => model.Grampear)
+            </div>
+        </fieldset>
+        <fieldset id="tamanho">
+            <legend>Tamanho</legend>
+            <div class="item-field">
+                @Html.LabelFor(model => model.Reduzido)
+                @Html.EditorFor(model => model.Reduzido)
+                @Html.ValidationMessageFor(model => model.Reduzido)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.Ampliado)
+                @Html.EditorFor(model => model.Ampliado)
+                @Html.ValidationMessageFor(model => model.Ampliado)
+            </div>
+        </fieldset>
+        <fieldset id="orientacao">
+            <legend>Orientação</legend>
+            <div class="item-field">
+                @Html.LabelFor(model => model.FrenteVerso)
+                @Html.EditorFor(model => model.FrenteVerso)
+                @Html.ValidationMessageFor(model => model.FrenteVerso)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.SoFrente)
+                @Html.EditorFor(model => model.SoFrente)
+                @Html.ValidationMessageFor(model => model.SoFrente)
+            </div>
+        </fieldset>
+        <fieldset id="encadernacao">
+            <legend>Encadernação</legend>
+            <div class="item-field">
+                @Html.LabelFor(model => model.Espiral)
+                @Html.EditorFor(model => model.Espiral)
+                @Html.ValidationMessageFor(model => model.Espiral)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.CapaEmPVC)
+                @Html.EditorFor(model => model.CapaEmPVC)
+                @Html.ValidationMessageFor(model => model.CapaEmPVC)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.CapaEmPapel)
+                @Html.EditorFor(model => model.CapaEmPapel)
+                @Html.ValidationMessageFor(model => model.CapaEmPapel)
+            </div>
+        </fieldset>
+
+        <fieldset id="outros">
+            <legend>Outros</legend>
+            <div class="item-field">
+                @Html.LabelFor(model => model.Transparencia)
+                @Html.EditorFor(model => model.Transparencia)
+                @Html.ValidationMessageFor(model => model.Transparencia)
+            </div>
+            
+            <div class="item-field">
+                @Html.LabelFor(model => model.Digitacao)
+                @Html.EditorFor(model => model.Digitacao)
+                @Html.ValidationMessageFor(model => model.Digitacao)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.SemAcabamento)
+                @Html.EditorFor(model => model.SemAcabamento)
+                @Html.ValidationMessageFor(model => model.SemAcabamento)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.PretoBranco)
+                @Html.EditorFor(model => model.PretoBranco)
+                @Html.ValidationMessageFor(model => model.PretoBranco)
+            </div>
+            <div class="item-field">
+                @Html.LabelFor(model => model.CortarAoMeio)
+                @Html.EditorFor(model => model.CortarAoMeio)
+                @Html.ValidationMessageFor(model => model.CortarAoMeio)
+            </div>
+        </fieldset>
+    </fieldset>
+}
