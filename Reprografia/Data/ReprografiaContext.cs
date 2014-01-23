@@ -13,6 +13,11 @@ namespace Reprografia.Data
 {
     public class ReprografiaContext : DbContext
     {
+        public ReprografiaContext()
+            : base("ApplicationServices")
+        {
+
+        }
         public DbSet<Solicitacao> Solicitacoes { get; set; }
         public DbSet<Item> Items { get; set; }
 

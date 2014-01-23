@@ -1,0 +1,23 @@
+﻿@model IEnumerable<reprografia.models.solicitacao>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/admin.css")" />
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Usuário</th>
+                <th>Email</th>
+                <th>Pendente Desde</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@s.AnoSeq, "Details", "Solicitacao", new { Id = @s.Id }, null)</td>
+                    <td>@s.User.FullName (@s.UserName)</td>
+                    <td>@s.User.Email</td>
+                    <td>@Html.DisplayFor(m => s.Avaliacao.DataLimite)</td>
+                </tr>
+            }
+        </tbody>
+    </table>

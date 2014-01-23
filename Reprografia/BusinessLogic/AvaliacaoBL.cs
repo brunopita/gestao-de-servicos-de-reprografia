@@ -7,6 +7,7 @@ using Reprografia.lib;
 using System.IO;
 using Reprografia.Models;
 using Reprografia.Data.XL;
+using System.Data.Entity;
 
 namespace Reprografia.BusinessLogic
 {
@@ -28,11 +29,23 @@ namespace Reprografia.BusinessLogic
                                where s.User.UserName == user.UserName
                                select s;
 
-            DateTime agora = DateTime.Now;
+            return solicitacoes.FiltrarPendentes().Any(); // Regra para dias corridos para avaliar
+        }
 
+        public static IQueryable<Solicitacao> FiltrarPendentes(this DbSet<Solicitacao> solicitacoes, DateTime? dataReferencia = null)
+        {
+            return FiltrarPendentes(solicitacoes.Select(s => s), dataReferencia);
+        }
+
+        public static IQueryable<Solicitacao> FiltrarPendentes(this IQueryable<Solicitacao> solicitacoes, DateTime? dataReferencia = null)
+        {
+            if (!dataReferencia.HasValue)
+            {
+                dataReferencia = DateTime.Now;
+            }
             //Verificar se avaliações estão pendentes
-            return solicitacoes.Any(s => !s.Avaliacao.Avaliado &&
-                s.Avaliacao.DataLimite < agora); // Regra para dias corridos para avaliar
+            return solicitacoes.Where(s => !s.Avaliacao.Avaliado &&
+                s.Avaliacao.DataLimite < dataReferencia);
         }
 
         public static Models.Avaliacao CriarAvaliacao()

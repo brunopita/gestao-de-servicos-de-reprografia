@@ -73,8 +73,6 @@ namespace Reprografia.Models
         [ForeignKey("UserName")]
         public virtual User User { get; set; }
 
-        //public string UserName { get; set; }
-
         public virtual Avaliacao Avaliacao { get; set; }
 
         public virtual ICollection<Item> Itens { get; set; }

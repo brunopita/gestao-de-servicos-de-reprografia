@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+ViewBag.Title = "Index";
 }
 <style>
   .inline{
@@ -10,25 +10,26 @@
 
 <h3>Relatórios</h3>
 <ul>
-    <li>@Html.ActionLink("Listagem de solicitações", "SolicitacoesList")</li>
-    <li>Relatório de ações
-        <form class="inline" action="@Url.Action("ActionReport")" method="get">
-            <select name="month">
-              <option value="1" @(DateTime.Today.Month==1?"selected":"")>Janeiro</option>
-              <option value="2" @(DateTime.Today.Month==2?"selected":"")>Fevereiro</option>
-              <option value="3" @(DateTime.Today.Month==3?"selected":"")>Março</option>
-              <option value="4" @(DateTime.Today.Month==4?"selected":"")>Abril</option>
-              <option value="5" @(DateTime.Today.Month==5?"selected":"")>Maio</option>
-              <option value="6" @(DateTime.Today.Month==6?"selected":"")>Junho</option>
-              <option value="7" @(DateTime.Today.Month==7?"selected":"")>Julho</option>
-              <option value="8" @(DateTime.Today.Month==8?"selected":"")>Agosto</option>
-              <option value="9" @(DateTime.Today.Month==9?"selected":"")>Setembro</option>
-              <option value="10" @(DateTime.Today.Month==10?"selected":"")>Outubro</option>
-              <option value="11" @(DateTime.Today.Month==11?"selected":"")>Novembro</option>
-              <option value="12" @(DateTime.Today.Month==12?"selected":"")>Dezembro</option>
-            </select>
-            <input type="number" name="year" value="@DateTime.Today.Year" />
-            <input type="submit" value="Ir" />
-        </form>
-    </li>
+  <li>@Html.ActionLink("Avaliações Pendentes", "AvaliacoesPendentes")</li>
+  <li>@Html.ActionLink("Listagem de solicitações", "SolicitacoesList")</li>
+  <li>Relatório de ações
+    <form class="inline" action="@Url.Action("ActionReport")" method="get">
+      <select name="month">
+        <option value="1" @(DateTime.Today.Month==1?"selected":"")>Janeiro</option>
+        <option value="2" @(DateTime.Today.Month==2?"selected":"")>Fevereiro</option>
+        <option value="3" @(DateTime.Today.Month==3?"selected":"")>Março</option>
+        <option value="4" @(DateTime.Today.Month==4?"selected":"")>Abril</option>
+        <option value="5" @(DateTime.Today.Month==5?"selected":"")>Maio</option>
+        <option value="6" @(DateTime.Today.Month==6?"selected":"")>Junho</option>
+        <option value="7" @(DateTime.Today.Month==7?"selected":"")>Julho</option>
+        <option value="8" @(DateTime.Today.Month==8?"selected":"")>Agosto</option>
+        <option value="9" @(DateTime.Today.Month==9?"selected":"")>Setembro</option>
+        <option value="10" @(DateTime.Today.Month==10?"selected":"")>Outubro</option>
+        <option value="11" @(DateTime.Today.Month==11?"selected":"")>Novembro</option>
+        <option value="12" @(DateTime.Today.Month==12?"selected":"")>Dezembro</option>
+      </select>
+      <input type="number" name="year" value="@DateTime.Today.Year" />
+      <input type="submit" value="Ir" />
+    </form>
+  </li>
 </ul>

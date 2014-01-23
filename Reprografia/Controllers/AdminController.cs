@@ -8,6 +8,7 @@ using Reprografia.Models.ViewModels;
 using Omu.ValueInjecter;
 using Reprografia.BusinessLogic;
 using Reprografia.Models;
+using Reprografia.BusinessLogic;
 
 namespace Reprografia.Controllers
 {
@@ -77,5 +78,11 @@ namespace Reprografia.Controllers
             return View(model);
         }
 
+        [HttpGet, Authorize(Roles = "Administrator")]
+        public ActionResult AvaliacoesPendentes()
+        {
+            var model = db.Solicitacoes.FiltrarPendentes().ToList();
+            return View(model);
+        }
     }
 }
